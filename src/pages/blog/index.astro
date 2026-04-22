@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog e Dicas | Vidraçaria Salvador">
+  <main class="py-32">
+    <div class="container mx-auto">
+      <h1 class="text-6xl md:text-8xl font-black text-gray-900 leading-tight mb-16">
+        Blog & <span class="text-secondary">Dicas</span>
+      </h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {posts.map(post => (
+          <article class="bg-gray-50 p-12 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all">
+            <time class="text-sm font-bold text-gray-400 uppercase tracking-widest block mb-4">
+              {post.data.pubDate.toLocaleDateString('pt-BR')}
+            </time>
+            <h2 class="text-3xl font-black text-gray-900 mb-6 leading-tight">
+              <a href={`/blog/${post.slug}`} class="hover:text-secondary transition-colors italic">
+                "{post.data.title}"
+              </a>
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">{post.data.description}</p>
+            <a href={`/blog/${post.slug}`} class="text-secondary font-black hover:underline">Ler artigo completo</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
