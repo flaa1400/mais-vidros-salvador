@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const services = await getCollection('servicos');
+---
+
+<Layout title="Nossos Serviços | Vidraçaria Salvador">
+  <main class="py-32">
+    <div class="container mx-auto">
+      <h1 class="text-6xl md:text-8xl font-black text-gray-900 leading-tight mb-16">
+        Nossos <span class="text-secondary">Serviços</span>
+      </h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {services.sort((a, b) => a.data.order - b.data.order).map(service => (
+          <a href={`/servicos/${service.slug}`} class="group bg-white border border-gray-100 p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all flex flex-col justify-between h-full">
+            <div>
+              <div class="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block">{service.data.icon}</div>
+              <h2 class="text-3xl font-black text-gray-900 mb-6">{service.data.title}</h2>
+              <p class="text-xl text-gray-600 leading-relaxed mb-8">{service.data.description}</p>
+            </div>
+            <span class="text-secondary font-extrabold text-lg flex items-center gap-2 group-hover:gap-4 transition-all">
+              Ver Detalhes do Serviço <span>&rarr;</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
