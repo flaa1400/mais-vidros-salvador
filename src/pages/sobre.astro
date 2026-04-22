@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+	{ title: "Qualidade", desc: "Materiais certificados e acabamento de alto padrão em cada detalhe.", icon: "💎" },
+	{ title: "Segurança", desc: "Foco total nas normas da ABNT para garantir a proteção da sua família.", icon: "🛡️" },
+	{ title: "Ética", desc: "Transparência total nos orçamentos e prazos de entrega reais.", icon: "🤝" },
+	{ title: "Inovação", desc: "Sempre antenados com as novas tendências de design em vidro.", icon: "💡" }
+];
+---
+
+<Layout title="Sobre Nós | Vidraçaria Salvador">
+	<main>
+		<!-- HERO INTERNA -->
+		<section class="bg-gray-900 pt-48 pb-32 text-center relative overflow-hidden">
+			<div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+			<div class="container mx-auto relative z-10">
+				<h1 class="text-6xl md:text-8xl font-black text-white leading-tight mb-8">Nossa <span class="text-primary italic">História</span></h1>
+				<p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-medium">A união entre tradição, técnica e design moderno no coração de Salvador.</p>
+			</div>
+		</section>
+
+		<!-- HISTORIA -->
+		<section class="bg-white">
+			<div class="container mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+					<div class="space-y-10">
+						<h2 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight">Uma trajetória de <span class="text-secondary">transparência</span> e solidez.</h2>
+						<div class="text-xl text-gray-600 leading-relaxed space-y-6">
+							<p>
+								Fundada há mais de uma década em Salvador, a Vidraçaria Salvador nasceu com o propósito de oferecer mais do que simples instalações de vidro. Queríamos oferecer soluções que transformassem os lares baianos em espaços de pura elegância e segurança.
+							</p>
+							<p>
+								O que começou como uma pequena oficina técnica, hoje é uma das principais referências em vidro temperado e esquadrias de alumínio na capital e Região Metropolitana.
+							</p>
+						</div>
+					</div>
+					<div class="bg-gray-100 rounded-[3rem] aspect-[4/3] flex items-center justify-center overflow-hidden border-8 border-white shadow-2xl skew-y-3">
+						<span class="text-9xl grayscale opacity-20">🏗️</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- MISSAO, VISAO, VALORES -->
+		<section class="bg-gray-50">
+			<div class="container mx-auto">
+				<div class="text-center max-w-3xl mx-auto mb-20">
+					<h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 uppercase tracking-tight">Missão e Valores</h2>
+					<p class="text-lg text-gray-500 font-bold uppercase tracking-widest leading-loose">O que nos move todos os dias na busca pela excelência.</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+					{values.map(v => (
+						<div class="bg-white p-12 rounded-[2.5rem] shadow-sm border border-gray-100 text-center hover:shadow-xl transition-all">
+							<div class="text-5xl mb-8">{v.icon}</div>
+							<h3 class="text-2xl font-black text-gray-900 mb-6">{v.title}</h3>
+							<p class="text-gray-600 leading-relaxed">{v.desc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- SEGURANÇA -->
+		<section class="bg-white">
+			<div class="container mx-auto">
+				<div class="bg-secondary rounded-[4rem] p-16 md:p-32 text-white relative overflow-hidden">
+					<div class="absolute right-0 bottom-0 text-[20rem] opacity-5 pointer-events-none translate-x-20 translate-y-20">🛡️</div>
+					<div class="max-w-4xl relative z-10">
+						<h2 class="text-4xl md:text-6xl font-black mb-12 leading-tight">Compromisso rigoroso com a <span class="text-primary italic">Segurança.</span></h2>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-xl text-blue-50 leading-relaxed font-medium">
+							<p>
+								Seguimos todas as normas técnicas da ABNT (Associação Brasileira de Normas Técnicas), com destaque para a NBR 14698, que regulamenta o uso de vidros temperados em ambientes internos e externos.
+							</p>
+							<p>
+								Nossa manutenção periódica de boxes e cortinas de vidro garante que os mecanismos de segurança e roldanas estejam sempre funcionando perfeitamente, prevenindo acidentes.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- EQUIPE -->
+		<section class="bg-white">
+			<div class="container mx-auto text-center">
+				<div class="max-w-3xl mx-auto mb-20">
+					<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8">Atendimento <span class="text-secondary italic">Humanizado.</span></h2>
+					<p class="text-xl text-gray-600 leading-relaxed font-medium">
+						Nossa equipe de consultores técnicos não apenas instala vidros, eles entendem o seu projeto e sugerem as melhores soluções de design e economia.
+					</p>
+				</div>
+				<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 grayscale hover:grayscale-0 transition-all duration-700">
+					<!-- Placeholders for team -->
+					{[1,2,3,4].map(i => (
+						<div class="space-y-6">
+							<div class="aspect-square bg-gray-50 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-6xl">🧑‍🔧</div>
+							<div>
+								<h4 class="font-black text-xl text-gray-900">Consultor Técnico {i}</h4>
+								<p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Especialista</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA FINAL INTEGRADO -->
+		<section class="bg-primary">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-10">Pronto para começar seu projeto?</h2>
+				<a href="/contato" class="inline-block bg-secondary text-white px-12 py-6 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl">
+					Solicitar Consultoria Grátis
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
