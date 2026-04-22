@@ -1,0 +1,40 @@
+---
+import { SITE_CONFIG } from '../data/config';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": SITE_CONFIG.nap.name,
+  "image": `${SITE_CONFIG.url}/logo.png`,
+  "@id": SITE_CONFIG.url,
+  "url": SITE_CONFIG.url,
+  "telephone": SITE_CONFIG.nap.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": SITE_CONFIG.nap.address.split(' - ')[0],
+    "addressLocality": "Salvador",
+    "addressRegion": "BA",
+    "postalCode": "",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -12.9333,
+    "longitude": -38.4343
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:30",
+    "closes": "18:00"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
