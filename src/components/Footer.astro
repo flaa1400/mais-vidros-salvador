@@ -1,0 +1,76 @@
+---
+import { SITE_CONFIG } from '../data/config';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-accent text-gray-100 pt-32 pb-16 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"></div>
+  
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+      <div class="lg:col-span-2">
+        <a href="/" class="flex items-center gap-4 mb-8 group">
+          <div class="w-12 h-12 bg-secondary flex items-center justify-center rounded-2xl border-2 border-primary shadow-lg shadow-primary/10 group-hover:rotate-12 transition-transform">
+            <span class="text-primary font-black text-2xl">V</span>
+          </div>
+          <span class="text-3xl font-black text-white tracking-widest leading-none">
+            {SITE_CONFIG.nap.name.split(' ')[0].toUpperCase()} <br/> <span class="text-primary italic">{SITE_CONFIG.nap.name.split(' ').slice(1).join(' ').toUpperCase()}</span>
+          </span>
+        </a>
+        <p class="text-gray-400 text-xl max-w-md leading-relaxed mb-10 font-medium italic">
+          "Transformando a Baía de Todos os Santos com a clareza e elegância do vidro temperado de alta performance."
+        </p>
+        <div class="flex gap-6">
+          <a href="https://instagram.com" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-all border border-white/10 hover:scale-110 active:scale-95 shadow-xl">
+             <span class="font-black text-xs uppercase">Ig</span>
+          </a>
+          <a href="https://facebook.com" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-all border border-white/10 hover:scale-110 active:scale-95 shadow-xl">
+            <span class="font-black text-xs uppercase">Fb</span>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-black text-lg mb-10 text-primary uppercase tracking-[0.3em] border-l-4 border-primary pl-4">Navegação</h4>
+        <ul class="space-y-6">
+          <li><a href="/" class="text-gray-300 hover:text-white hover:translate-x-3 flex items-center gap-2 transition-all font-bold">Início</a></li>
+          <li><a href="/servicos" class="text-gray-300 hover:text-white hover:translate-x-3 flex items-center gap-2 transition-all font-bold">Serviços</a></li>
+          <li><a href="/sobre" class="text-gray-300 hover:text-white hover:translate-x-3 flex items-center gap-2 transition-all font-bold">A Empresa</a></li>
+          <li><a href="/blog" class="text-gray-300 hover:text-white hover:translate-x-3 flex items-center gap-2 transition-all font-bold">Dicas Técnicas</a></li>
+          <li><a href="/contato" class="text-gray-300 hover:text-white hover:translate-x-3 flex items-center gap-2 transition-all font-bold text-primary">Orçamentos</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-black text-lg mb-10 text-primary uppercase tracking-[0.3em] border-l-4 border-primary pl-4">Matriz {SITE_CONFIG.nap.location.city}</h4>
+        <ul class="space-y-6 text-gray-300 font-medium">
+          <li class="flex gap-4">
+            <span class="text-primary font-black">📍</span>
+            {SITE_CONFIG.nap.address}
+          </li>
+          <li>
+            <a href={`tel:55${SITE_CONFIG.nap.whatsapp}`} class="flex gap-4 hover:text-primary transition-colors">
+              <span class="text-primary font-black">📞</span>
+              {SITE_CONFIG.nap.phone}
+            </a>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-primary font-black">✉️</span>
+            {SITE_CONFIG.nap.email}
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-white/5 pt-12 flex flex-col lg:flex-row justify-between items-center gap-8 text-gray-500 text-sm font-bold uppercase tracking-widest">
+      <p>&copy; {year} Vidraçaria Salvador. Todos os direitos reservados.</p>
+      <div class="flex gap-10">
+        <a href="/privacidade" class="hover:text-primary transition-colors">Privacidade</a>
+        <a href="/termos" class="hover:text-primary transition-colors">Termos de Uso</a>
+      </div>
+      <p class="flex items-center gap-2">
+        Feito com <span class="text-primary text-xl">⚡</span> por Astro
+      </p>
+    </div>
+  </div>
+</footer>
