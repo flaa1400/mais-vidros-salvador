@@ -2,7 +2,7 @@
 title: "Como Limpar seus Vidros sem Deixar Manchas"
 description: "Dicas de especialistas para manter seus espelhos e boxes brilhando."
 pubDate: 2026-04-21
-author: "Equipe Vidraçaria Salvador"
+author: "Equipe Mais Vidros Salvador"
 ---
 
 Manter os vidros da casa limpos pode ser um desafio, especialmente com a maresia de Salvador. Aqui estão nossas dicas de ouro:
