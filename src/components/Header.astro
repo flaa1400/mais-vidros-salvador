@@ -1,0 +1,136 @@
+---
+import { SITE_CONFIG } from '../data/config';
+const navItems = [
+  { label: 'Início', href: '/' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Sobre Nós', href: '/sobre' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
+];
+---
+
+<!-- HEADER PRINCIPAL -->
+<header id="main-header" class="fixed top-0 w-full z-[100] bg-white border-b border-gray-100">
+  <div class="container mx-auto">
+    <div class="flex items-center justify-between h-20 md:h-24">
+      <!-- LOGO -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 bg-secondary flex items-center justify-center rounded-2xl shadow-lg shadow-secondary/20 group-hover:scale-110 transition-all duration-500">
+          <span class="text-primary font-black text-2xl">V</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl md:text-2xl font-black text-secondary tracking-tighter leading-none">{SITE_CONFIG.nap.name.split(' ')[0]}</span>
+          <span class="text-lg md:text-xl font-bold text-accent tracking-widest leading-none uppercase">{SITE_CONFIG.nap.name.split(' ').slice(1).join(' ')}</span>
+        </div>
+      </a>
+      
+      <!-- DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-10">
+        {navItems.map(item => (
+          <a href={item.href} class="text-sm font-black text-gray-600 hover:text-secondary transition-all uppercase tracking-widest">
+            {item.label}
+          </a>
+        ))}
+        <a href="/contato" class="bg-secondary text-white px-8 py-4 rounded-xl font-black hover:scale-105 transition-all shadow-lg">
+          Orçamento Grátis
+        </a>
+      </nav>
+
+      <!-- BOTÃO MOBILE -->
+      <button id="menu-open-btn" class="lg:hidden p-2 text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- OVERLAY DO MENU (FORA DO HEADER PARA EVITAR CONFLITOS DE STACKING) -->
+<div 
+  id="mobile-overlay" 
+  class="fixed inset-0 z-[99999] bg-black hidden flex-col transition-opacity duration-300"
+>
+  <!-- TOP BAR -->
+  <div class="flex justify-between items-center p-8 bg-black border-b border-white/10">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl">
+        <span class="text-secondary font-black text-xl">V</span>
+      </div>
+      <span class="text-white font-black text-xl italic">Menu Principal</span>
+    </div>
+    <button id="menu-close-btn" class="text-white p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- LINKS CENTRAIS -->
+  <nav class="flex-grow flex flex-col justify-center items-center gap-8 bg-black p-8">
+    {navItems.map((item) => (
+      <a 
+        href={item.href} 
+        class="text-4xl font-black text-white hover:text-primary transition-all tracking-tighter uppercase mobile-link"
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+
+    <!-- FOOTER IN MENU -->
+    <div class="p-12 border-t border-white/10 flex flex-col items-center gap-8 bg-black">
+      <p class="text-gray-400 font-bold uppercase tracking-widest text-xs text-center">Precisa de ajuda urgente?</p>
+      <a 
+        href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}`} 
+        class="w-full bg-primary text-secondary py-6 rounded-2xl font-black text-2xl text-center shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-4"
+      >
+        WhatsApp 📱
+      </a>
+      <div class="flex flex-col items-center gap-2 text-white/50 text-sm font-bold uppercase tracking-widest">
+        <span>{SITE_CONFIG.nap.phone}</span>
+        <span>{SITE_CONFIG.nap.location.city}-{SITE_CONFIG.nap.location.state}</span>
+      </div>
+    </div>
+</div>
+
+<div class="h-20 md:h-24"></div>
+
+<script>
+  const openBtn = document.getElementById('menu-open-btn');
+  const closeBtn = document.getElementById('menu-close-btn');
+  const overlay = document.getElementById('mobile-overlay');
+  const body = document.body;
+
+  const openMenu = () => {
+    if (overlay) {
+      overlay.style.display = 'flex';
+      // Pequeno delay para a transição de opacidade funcionar se desejado
+      setTimeout(() => overlay.style.opacity = '1', 10);
+      body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeMenu = () => {
+    if (overlay) {
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 300);
+      body.style.overflow = '';
+    }
+  };
+
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  
+  // Fechar ao clicar em um link
+  const links = document.querySelectorAll('.mobile-link');
+  links.forEach(link => link.addEventListener('click', closeMenu));
+</script>
+
+<style>
+  /* Garantia final contra transparência */
+  #mobile-overlay {
+    background-color: #000000 !important;
+    opacity: 0;
+  }
+</style>
