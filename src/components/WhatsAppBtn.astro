@@ -1,0 +1,27 @@
+---
+import { SITE_CONFIG } from '../data/config';
+---
+
+<div class="fixed bottom-8 right-8 z-[9999] flex flex-col items-end group">
+  <!-- LABEL ON HOVER -->
+  <span class="mb-2 bg-secondary text-white text-xs font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity shadow-xl uppercase tracking-widest pointer-events-none">
+    Fale Conosco
+  </span>
+
+  <a 
+    href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="relative flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group"
+    aria-label="Chamar no WhatsApp"
+  >
+    <!-- PING EFFECT -->
+    <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25"></span>
+    
+    <!-- ICON -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.522.902 3.19 1.379 4.895 1.38h.005c5.454 0 9.894-4.44 9.897-9.895.002-2.641-1.03-5.124-2.906-7.003-1.875-1.878-4.358-2.911-6.999-2.912-5.453 0-9.892 4.441-9.897 9.896-.001 1.742.453 3.441 1.316 4.938l-1.077 3.931 4.041-1.06c1.517.9 3.191 1.379 4.896 1.38z"/>
+      <path d="M17.472 14.382c-.301-.15-.1.78-.15-.1-.301-.15-1.767-.869-2.027-1.02-.26-.15-.45-.224-.639.06-.188.284-.724.91-.888 1.094-.164.183-.329.206-.63.056-.301-.15-1.268-.467-2.415-1.49-.893-.796-1.495-1.78-1.671-2.08-.176-.3-.019-.462.131-.611.135-.134.301-.35.451-.525.15-.175.2-.299.3-.499.1-.2.05-.375-.025-.525-.075-.15-.639-1.541-.876-2.11-.23-.553-.464-.479-.64-.488-.164-.008-.352-.01-.541-.01-.189 0-.497.07-.757.35-.26.284-1 0-.284-1-.977 0-1.808.73-1.986.791-.176.061-.839.294-.839.715 0 .42.274.829.312.883.039.054.54 1.13 1.309 2.11.769.979 1.513 1.489 1.838 1.631.325.143.621.189.855.155.26-.038.839-.344 1.057-.674.218-.33.218-.612.155-.674-.066-.063-.242-.15-.542-.3z"/>
+    </svg>
+  </a>
+</div>
