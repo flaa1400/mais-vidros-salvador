@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contato | Vidraçaria Salvador">
+	<main>
+		<!-- CONTATO HERO -->
+		<section class="bg-secondary pt-48 pb-32 text-center relative overflow-hidden">
+			<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+			<div class="container mx-auto relative z-10">
+				<h1 class="text-6xl md:text-8xl font-black text-white leading-tight mb-8">Fale <span class="text-primary italic">Conosco</span></h1>
+				<p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto font-medium">Orçamentos rápidos por WhatsApp ou formulário. Atendimento em toda Salvador e RMS.</p>
+			</div>
+		</section>
+
+		<!-- CONTATO SECTIONS -->
+		<section class="bg-white">
+			<div class="container mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+					<!-- NAP & INFO -->
+					<div class="space-y-16">
+						<div>
+							<h2 class="text-4xl font-black text-gray-900 mb-8 uppercase tracking-tighter">Nossas <span class="text-secondary">Unidades</span></h2>
+							<div class="space-y-10">
+								<div class="flex gap-8 group">
+									<div class="w-20 h-20 bg-primary/20 rounded-[2rem] flex items-center justify-center text-4xl shrink-0 group-hover:bg-primary transition-all">📍</div>
+									<div class="pt-2">
+										<h3 class="text-2xl font-black text-gray-900 mb-2 underline decoration-primary decoration-4">Sede Administrativa</h3>
+										<p class="text-xl text-gray-600 font-medium leading-relaxed">
+											Av. Tancredo Neves, 1234 - Edf. Salvador Prime <br/>
+											Caminho das Árvores, Salvador - BA, 41820-020
+										</p>
+									</div>
+								</div>
+								
+								<div class="flex gap-8 group">
+									<div class="w-20 h-20 bg-primary/20 rounded-[2rem] flex items-center justify-center text-4xl shrink-0 group-hover:bg-primary transition-all">📞</div>
+									<div class="pt-2">
+										<h3 class="text-2xl font-black text-gray-900 mb-2 underline decoration-primary decoration-4">Telefones e Zap</h3>
+										<p class="text-xl text-gray-600 font-bold leading-relaxed tracking-wider">
+											(71) 98888-8888 (WhatsApp) <br/>
+											(71) 3333-3333 (Fixo)
+										</p>
+									</div>
+								</div>
+
+								<div class="flex gap-8 group">
+									<div class="w-20 h-20 bg-primary/20 rounded-[2rem] flex items-center justify-center text-4xl shrink-0 group-hover:bg-primary transition-all">⏰</div>
+									<div class="pt-2">
+										<h3 class="text-2xl font-black text-gray-900 mb-2 underline decoration-primary decoration-4">Horário de Atendimento</h3>
+										<p class="text-xl text-gray-600 font-medium leading-relaxed">
+											Segunda a Sexta: 08:30 às 18:00 <br/>
+											Sábado: 08:30 às 13:00
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- MAP PLACEHOLDER -->
+						<div class="bg-gray-100 rounded-[3rem] h-80 flex items-center justify-center border-4 border-dashed border-gray-200">
+							<span class="text-gray-400 font-black text-xl uppercase tracking-widest">Mapa de Salvador</span>
+						</div>
+					</div>
+
+					<!-- FORM -->
+					<div class="bg-gray-50 p-12 md:p-20 rounded-[4rem] border border-gray-100 shadow-sm relative">
+						<form class="space-y-10 relative z-10">
+							<div>
+								<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Sobre o que deseja falar?</label>
+								<select class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl font-bold appearance-none">
+									<option>Orçamento de Box</option>
+									<option>Espelhos Sob Medida</option>
+									<option>Cortina de Vidro</option>
+									<option>Outros Serviços</option>
+								</select>
+							</div>
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+								<div>
+									<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Seu Nome</label>
+									<input type="text" placeholder="Ex: João Silva" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
+								</div>
+								<div>
+									<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">WhatsApp</label>
+									<input type="tel" placeholder="(71) 99999-9999" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
+								</div>
+							</div>
+							<div>
+								<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Como podemos te ajudar?</label>
+								<textarea rows="4" placeholder="Descreva brevemente sua necessidade..." class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl resize-none"></textarea>
+							</div>
+							<button type="submit" class="w-full bg-secondary text-white p-10 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl flex items-center justify-center gap-6 group">
+								Enviar minha Solicitação 
+								<span class="group-hover:translate-x-3 transition-transform">&rarr;</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FINAL WHATSAPP CTA -->
+		<section class="bg-primary">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl md:text-6xl font-black text-secondary mb-12">Prefere um atendimento imediato?</h2>
+				<a href="https://wa.me/5571988888888" target="_blank" class="bg-secondary text-white px-16 py-8 rounded-[2.5rem] font-black text-3xl hover:scale-105 transition-all shadow-2xl flex items-center gap-6 mx-auto w-fit">
+					Clique para abrir o WhatsApp
+					<span>💬</span>
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
