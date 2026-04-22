@@ -1,0 +1,53 @@
+---
+import { SITE_CONFIG } from '../data/config';
+import SEO from '../components/SEO.astro';
+import SchemaLocalBusiness from '../components/SchemaLocalBusiness.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang={SITE_CONFIG.locale}>
+	<head>
+		<SEO title={title} description={description} />
+		<SchemaLocalBusiness />
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-white text-gray-600 font-sans antialiased selection:bg-primary selection:text-secondary">
+		<Header />
+		<slot />
+		<Footer />
+		<WhatsAppBtn />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	
+	/* Reset and base spacing rules */
+	section {
+		@apply py-24 md:py-32;
+	}
+</style>
