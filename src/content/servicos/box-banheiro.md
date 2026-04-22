@@ -5,7 +5,7 @@ icon: "🚿"
 order: 1
 ---
 
-O box para banheiro é um item essencial em qualquer residência moderna. Na Vidraçaria Salvador, utilizamos apenas **vidro temperado de 8mm**, garantindo máxima segurança para sua família.
+O box para banheiro é um item essencial em qualquer residência moderna. Na Mais Vidros Salvador, utilizamos apenas **vidro temperado de 8mm**, garantindo máxima segurança para sua família.
 
 ## Benefícios do nosso Box:
 - **Segurança:** Vidro certificado e ferragens em inox ou alumínio reforçado.
