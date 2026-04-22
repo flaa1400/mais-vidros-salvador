@@ -1,0 +1,174 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const services = (await getCollection('servicos')).slice(0, 6);
+
+const testimonials = [
+	{
+		name: "Cláudia Souza",
+		role: "Arquiteta Técnica",
+		text: "A Vidraçaria Salvador é minha parceira em todos os projetos. O acabamento das cortinas de vidro é impecável e a entrega sempre no prazo.",
+		photo: "👩‍💼"
+	},
+	{
+		name: "Ricardo Lima",
+		role: "Proprietário no Caminho das Árvores",
+		text: "Instalaram o box do meu banheiro e espelhos decorativos. Ficou tudo perfeito, limpo e com material de primeira qualidade.",
+		photo: "👨‍💼"
+	},
+	{
+		name: "Mariana Costa",
+		role: "Dona de Casa",
+		text: "O atendimento pelo WhatsApp foi muito rápido e tiraram todas as minhas dúvidas sobre o vidro temperado. Recomendo muito!",
+		photo: "👩"
+	}
+];
+
+const features = [
+	{ title: "Instalação Ágil", description: "Equipe técnica treinada para montagem rápida em toda Salvador.", icon: "⚡" },
+	{ title: "Vidros Certificados", description: "Trabalhamos apenas com vidros que seguem as normas da ABNT.", icon: "🛡️" },
+	{ title: "Melhor Preço", description: "Cobrimos orçamentos comprovados com as mesmas especificações.", icon: "💰" },
+	{ title: "Garantia Total", description: "Garantia extendida em todos os nossos serviços e ferragens.", icon: "✅" }
+];
+---
+
+<Layout title="Vidraçaria Salvador | Especialista em Vidros Temperados e Espelhos">
+	<main>
+		<!-- HERO SECTION -->
+		<section class="min-h-[85vh] flex items-center bg-gradient-to-br from-white to-gray-50 border-b border-gray-100 overflow-hidden">
+			<div class="container mx-auto">
+				<div class="max-w-4xl">
+					<span class="inline-block px-4 py-2 bg-primary text-secondary font-black text-xs md:text-sm uppercase tracking-[0.2em] rounded-lg mb-8 shadow-md">
+						Líder em Vidros de Alta Qualidade
+					</span>
+					<h1 class="text-5xl md:text-7xl font-black text-gray-900 leading-[1.1] mb-8 tracking-tighter">
+						Elegância e <span class="text-secondary italic">Segurança</span> <br class="hidden md:block" /> para o seu ambiente.
+					</h1>
+					<p class="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-12 font-medium">
+						Transformamos espaços com box, espelhos sob medida e cortinas de vidro em Salvador. Acabamento de agência para projetos exigentes.
+					</p>
+					
+					<div class="flex flex-wrap gap-6">
+						<a href="https://wa.me/5571988888888" target="_blank" class="bg-secondary text-white px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-secondary/20 flex items-center gap-4">
+							Orçamento no WhatsApp <span>&rarr;</span>
+						</a>
+						<a href="/servicos" class="bg-white border-4 border-gray-100 text-gray-900 px-10 py-6 rounded-2xl font-black text-xl hover:border-primary hover:scale-105 active:scale-95 transition-all">
+							Nossos Serviços
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- DIFERENCIAIS -->
+		<section>
+			<div class="container mx-auto">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+					{features.map(f => (
+						<div class="p-12 bg-gray-50 rounded-[2.5rem] border border-gray-100 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all group hover:-translate-y-2">
+							<div class="text-5xl mb-8 group-hover:scale-125 transition-transform duration-500">{f.icon}</div>
+							<h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tighter">{f.title}</h3>
+							<p class="text-gray-600 leading-relaxed font-medium text-lg">{f.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- SOBRE RESUMO (CONTRASTE CRÍTICO) -->
+		<section class="bg-gray-900 text-white relative overflow-hidden">
+			<div class="absolute right-0 top-0 w-1/3 h-full bg-primary/10 blur-[120px] rounded-full"></div>
+			<div class="container mx-auto relative z-10">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+					<div>
+						<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter text-primary italic">Expertise que faz a diferença.</h2>
+						<p class="text-xl text-gray-100 leading-relaxed mb-10 font-medium">
+							Com mais de 10 anos de atuação em Salvador, a Vidraçaria Salvador combina tradição técnica com as tendências mais modernas do mercado de vidros e decoração.
+						</p>
+						<a href="/sobre" class="inline-block bg-primary text-secondary px-10 py-5 rounded-2xl font-black text-xl hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+							Conheça nossa História
+						</a>
+					</div>
+					<div class="bg-white/5 p-12 rounded-[4rem] border border-white/10 backdrop-blur-sm">
+						<div class="text-9xl grayscale opacity-20 text-center animate-pulse">🏢</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SERVIÇOS GRID -->
+		<section id="servicos">
+			<div class="container mx-auto">
+				<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+					<div class="max-w-2xl">
+						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Nossas Soluções</h2>
+						<p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm opacity-60">Qualidade Garantida em Cada Projeto</p>
+					</div>
+					<a href="/servicos" class="bg-gray-100 text-secondary px-10 py-5 rounded-2xl font-black hover:bg-primary hover:scale-105 active:scale-95 transition-all shadow-sm">
+						Ver Todos os Serviços
+					</a>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+					{services.map(s => (
+						<a href={`/servicos/${s.slug}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
+							<div>
+								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
+								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title}</h3>
+								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description}</p>
+							</div>
+							<span class="text-secondary font-black flex items-center gap-2 group-hover:gap-6 transition-all uppercase tracking-[0.2em] text-sm italic">
+								Explorar Solução <span>&rarr;</span>
+							</span>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- DEPOIMENTOS -->
+		<section class="bg-gray-50">
+			<div class="container mx-auto">
+				<h2 class="text-4xl md:text-5xl font-black text-gray-900 text-center mb-24 tracking-tighter italic">O que nossos <span class="text-secondary not-italic">clientes</span> dizem</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+					{testimonials.map(t => (
+						<div class="bg-white p-12 rounded-[3rem] shadow-sm border border-gray-100 hover:shadow-2xl transition-all hover:-translate-y-4">
+							<div class="text-5xl mb-8">“</div>
+							<p class="text-gray-600 text-xl leading-relaxed mb-12 italic font-medium">
+								{t.text}
+							</p>
+							<div class="flex items-center gap-6">
+								<div class="text-4xl">{t.photo}</div>
+								<div>
+									<h4 class="font-black text-gray-900 text-lg tracking-tighter">{t.name}</h4>
+									<p class="text-gray-500 font-bold text-xs uppercase tracking-widest">{t.role}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA FINAL -->
+		<section class="bg-primary">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-12 tracking-tighter">
+					Pronto para transformar sua residência na <span class="italic underline decoration-white decoration-4">Bahia?</span>
+				</h2>
+				<p class="text-xl md:text-2xl text-secondary opacity-90 max-w-3xl mx-auto mb-16 font-bold leading-relaxed uppercase tracking-widest">
+					Garantimos o melhor acabamento e suporte técnico de Salvador.
+				</p>
+				<div class="flex flex-wrap justify-center gap-8">
+					<a href="https://wa.me/5571988888888" target="_blank" class="bg-secondary text-white px-12 py-8 rounded-[2.5rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-2xl flex items-center gap-4">
+						WhatsApp Agora <span>📱</span>
+					</a>
+					<a href="tel:5571988888888" class="bg-white text-secondary px-12 py-8 rounded-[2.5rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-xl flex items-center gap-4 border-4 border-white/50">
+						Ligar Direto <span>📞</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
