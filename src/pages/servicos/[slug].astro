@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const servicesEntries = await getCollection('servicos');
+  return servicesEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const technicalSpecs = [
+	{ label: "Material", value: "Vidro Temperado / Laminado" },
+	{ label: "Espessura", value: "8mm a 12mm" },
+	{ label: "Norma", value: "ABNT NBR 14698" },
+	{ label: "Prazo", value: "7 a 15 dias úteis" },
+	{ label: "Garantia", value: "1 ano (Ferragens)" },
+	{ label: "Instalação", value: "Equipe Própria Certificada" }
+];
+---
+
+<Layout title={`${entry.data.title} | Vidraçaria Salvador`}>
+	<main>
+		<!-- SERVICE HERO -->
+		<section class="bg-gray-900 pt-56 pb-32 relative overflow-hidden">
+			<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+			<div class="container mx-auto relative z-10">
+				<div class="max-w-5xl">
+					<a href="/servicos" class="text-primary font-black uppercase tracking-[0.2em] text-xs md:text-sm mb-12 inline-flex items-center gap-2 hover:translate-x-[-10px] transition-transform">
+						<span>&larr;</span> Todos os Serviços
+					</a>
+					<div class="flex flex-col md:flex-row gap-12 items-start md:items-center mb-16">
+						<div class="text-7xl md:text-9xl bg-primary text-secondary w-32 h-32 md:w-56 md:h-56 rounded-[3rem] shadow-2xl shadow-primary/20 flex items-center justify-center shrink-0 rotate-3">
+							{entry.data.icon}
+						</div>
+						<div>
+							<h1 class="text-5xl md:text-7xl font-black text-white leading-none tracking-tighter mb-8">
+								{entry.data.title}
+							</h1>
+							<p class="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium italic opacity-80">
+								"{entry.data.description}"
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTENT AREA -->
+		<section class="bg-white">
+			<div class="container mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+					<!-- ARTICLE -->
+					<div class="lg:col-span-8">
+						<article class="prose prose-xl prose-slate max-w-none prose-headings:text-gray-900 prose-headings:font-black prose-headings:tracking-tighter prose-p:text-gray-600 prose-strong:text-secondary prose-li:font-medium shadow-sm bg-gray-50/50 p-10 md:p-16 rounded-[3.5rem] border border-gray-100">
+							<Content />
+						</article>
+						
+						<div class="mt-20">
+							<h2 class="text-4xl font-black text-gray-900 mb-12 tracking-tighter uppercase italic">Benefícios Únicos</h2>
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{[
+									"Valorização imediata do seu patrimônio",
+									"Ambientes modernos com luz natural",
+									"Baixa manutenção e limpeza simplificada",
+									"Segurança total certificada pelo Inmetro"
+								].map(b => (
+									<div class="flex items-center gap-6 p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:border-primary hover:scale-[1.02] transition-all font-black text-gray-800 text-lg italic">
+										<span class="text-primary text-3xl">✔</span> {b}
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+
+					<!-- SIDEBAR (DITADURA DO CONTRASTE) -->
+					<aside class="lg:col-span-4">
+						<div class="sticky top-32 space-y-12">
+							<div class="bg-secondary rounded-[3.5rem] p-12 text-white shadow-2xl shadow-secondary/30 border-4 border-white/5">
+								<h3 class="text-2xl font-black mb-10 text-primary uppercase tracking-widest border-b border-white/10 pb-6">Ficha Técnica</h3>
+								<ul class="space-y-8">
+									{technicalSpecs.map(s => (
+										<li class="flex flex-col group">
+											<span class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-2 group-hover:text-primary transition-colors">{s.label}</span>
+											<span class="text-xl font-bold tracking-tight">{s.value}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+							
+							<div class="bg-primary rounded-[3.5rem] p-12 text-secondary flex flex-col items-center text-center shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all cursor-pointer">
+								<div class="text-7xl mb-8 animate-bounce">📱</div>
+								<h3 class="text-3xl font-black mb-6 tracking-tighter leading-tight">Dúvidas Técnicas?</h3>
+								<p class="font-bold mb-10 opacity-80 leading-relaxed text-lg">Fale com nosso engenheiro técnico agora pelo WhatsApp.</p>
+								<a href="https://wa.me/5571988888888" target="_blank" class="bg-secondary text-white w-full py-6 rounded-2xl font-black text-xl hover:bg-black transition-all shadow-xl">
+									Atendimento VIP
+								</a>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</section>
+
+		<!-- FINAL CONVERSION -->
+		<section class="bg-gray-900 pt-32 pb-32 text-center text-white border-t border-white/5">
+			<div class="container mx-auto">
+				<h2 class="text-4xl md:text-6xl font-black mb-12 tracking-tighter leading-tight">
+					Transforme seu projeto em <span class="text-primary italic">realidade.</span>
+				</h2>
+				<p class="text-xl text-gray-400 max-w-2xl mx-auto mb-16 font-medium">Solicite sua medição gratuita em qualquer bairro de Salvador e RMS hoje mesmo.</p>
+				<div class="flex flex-wrap justify-center gap-8">
+					<a href="https://wa.me/5571988888888" target="_blank" class="bg-primary text-secondary px-12 py-7 rounded-[2rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-2xl shadow-primary/20">
+						Chamar no Zap
+					</a>
+					<a href="tel:5571988888888" class="bg-white text-secondary px-12 py-7 rounded-[2rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-xl">
+						Ligar Agora
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
