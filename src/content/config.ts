@@ -7,7 +7,7 @@ const blogCollection = defineCollection({
     description: z.string(),
     pubDate: z.date(),
     image: z.string().optional(),
-    author: z.string().default('Vidraçaria Salvador'),
+    author: z.string().default('Mais Vidros Salvador'),
   }),
 });
 
