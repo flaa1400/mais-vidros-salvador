@@ -1,5 +1,5 @@
 ---
-title: "Porta de Vidro Temperado"
+title: "Porta de Vidro Temperado em Salvador"
 description: "Portas de vidro temperado de 8mm e 10mm com ferragens de alta qualidade."
 icon: "🚪"
 order: 15
