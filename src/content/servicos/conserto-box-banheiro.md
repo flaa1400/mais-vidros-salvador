@@ -1,5 +1,5 @@
 ---
-title: "Conserto de Box de Banheiro"
+title: "Conserto de Box de Banheiro em Salvador"
 description: "Reparo rápido e seguro de box de banheiro em todos os bairros de Salvador."
 icon: "🚿"
 order: 7
