@@ -20,9 +20,6 @@ Uma manutenção regular não apenas prolonga a vida útil do material, mas tamb
 - **Vedação e Estanqueidade:** Revisão e troca de escovinhas ou silicone para evitar infiltrações de água e reduzir ruídos externos.
 - **Troca de Componentes:** Substituição de peças desgastadas por componentes originais, garantindo o funcionamento perfeito do sistema.
 
-## Atendimento em Toda a Salvador
-
-Nossa equipe está estrategicamente posicionada para oferecer um atendimento ágil e eficiente em diversos bairros da capital. Não importa onde você esteja em Salvador, estamos prontos para levar a solução técnica ideal até o seu endereço, com pontualidade e profissionalismo.
 <br /><br />
 ### Por que escolher a Mais Vidros Salvador?
 
