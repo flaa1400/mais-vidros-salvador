@@ -1,5 +1,5 @@
 ---
-title: "Envidraçamento de Sacada"
+title: "Envidraçamento de Sacada em Salvador"
 description: "Soluções modernas de envidraçamento de sacadas para maior conforto e valorização."
 icon: "🏗️"
 order: 9
