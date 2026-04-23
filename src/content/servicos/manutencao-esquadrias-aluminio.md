@@ -1,5 +1,5 @@
 ---
-title: "Manutenção em Esquadrias de Alumínio"
+title: "Manutenção em Esquadrias de Alumínio em Salvador"
 description: "Conserto e ajuste de esquadrias de alumínio para garantir vedação e silêncio."
 icon: "🔧"
 order: 6
