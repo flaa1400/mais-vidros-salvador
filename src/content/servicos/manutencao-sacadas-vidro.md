@@ -1,5 +1,5 @@
 ---
-title: "Manutenção em Sacadas de Vidro"
+title: "Manutenção em Sacadas de Vidro em Salvador"
 description: "Reparo e manutenção de sacadas de vidro com segurança total em Salvador."
 icon: "🏢"
 order: 5
