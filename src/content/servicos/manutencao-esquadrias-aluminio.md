@@ -1,6 +1,6 @@
 ---
 title: "Manutenção em Esquadrias de Alumínio em Salvador"
-description: "Embora o alumínio seja altamente durável, os acessórios das esquadrias como fechos, braços e vedações precisam de atenção especializada para não comprometer o u..."
+description: "Embora o alumínio seja altamente durável, os acessórios das esquadrias como fechos, braços e vedações precisam de atenção especializada para não comprometer o u"
 icon: "🔧"
 order: 6
 ---
