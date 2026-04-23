@@ -1,5 +1,5 @@
 ---
-title: "Divisórias de Vidro"
+title: "Divisórias de Vidro em Salvador"
 description: "Divisórias de vidro para escritórios e ambientes residenciais com sofisticação."
 icon: "📂"
 order: 10
