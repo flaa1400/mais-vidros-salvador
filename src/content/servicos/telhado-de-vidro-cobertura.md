@@ -1,5 +1,5 @@
 ---
-title: "Telhado de Vidro ou Cobertura de Vidro"
+title: "Telhado de Vidro ou Cobertura de Vidro em Salvador"
 description: "Coberturas e telhados de vidro laminado para proteção e iluminação natural."
 icon: "☀️"
 order: 14
