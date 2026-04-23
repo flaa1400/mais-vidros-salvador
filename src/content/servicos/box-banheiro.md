@@ -1,5 +1,5 @@
 ---
-title: "Box para Banheiro"
+title: "Box para Banheiro em Salvador"
 description: "Especialistas em instalação de box de vidro temperado em Salvador."
 icon: "🚿"
 order: 1
