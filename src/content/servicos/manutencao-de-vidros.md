@@ -7,13 +7,13 @@ order: 2
 
 A **Mais Vidros Salvador** é a sua parceira de confiança quando o assunto é **Manutenção de Vidros em Salvador**. Sabemos que vidros temperados e sistemas de envidraçamento exigem cuidados periódicos para garantir a segurança total da sua família ou do seu estabelecimento comercial.
 
-## A Importância da Manutenção Preventiva
+**A Importância da Manutenção Preventiva:**
 
 Devido à forte maresia e às condições climáticas típicas de nossa capital, os componentes metálicos e as ferragens dos vidros podem sofrer desgastes acelerados com o tempo. 
 
 Uma manutenção regular não apenas prolonga a vida útil do material, mas também previne acidentes graves causados por desajustes ou fadiga de componentes essenciais. Investir em prevenção é garantir tranquilidade e economia a longo prazo.
 
-### O que incluímos em nossa manutenção técnica:
+**O que incluímos em nossa manutenção técnica:**
 
 - **Regulagem de Ferragens:** Ajuste preciso de dobradiças, molas e puxadores para garantir um fechamento suave e seguro.
 - **Lubrificação Especializada:** Aplicação de produtos de alta performance que resistem à maresia e evitam o travamento de roldanas e trilhos.
