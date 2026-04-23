@@ -1,6 +1,6 @@
 ---
 title: "Box para Banheiro em Salvador"
-description: "A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana, ..."
+description: "A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana, "
 icon: "🚿"
 order: 1
 ---
