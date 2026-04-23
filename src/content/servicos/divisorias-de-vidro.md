@@ -1,6 +1,6 @@
 ---
 title: "Divisórias de Vidro em Salvador"
-description: "Divisórias de Vidro são a escolha inteligente para escritórios e residências que buscam separar ambientes sem perder a luminosidade e a sensação de amplitude. N..."
+description: "Divisórias de Vidro são a escolha inteligente para escritórios e residências que buscam separar ambientes sem perder a luminosidade e a sensação de amplitude. N"
 icon: "📂"
 order: 10
 ---
