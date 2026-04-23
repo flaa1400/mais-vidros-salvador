@@ -1,6 +1,6 @@
 ---
 title: "Manutenção de Cortina de Vidro em Salvador"
-description: "Sistemas de cortina de vidro possuem peças articuladas que exigem manutenção especializada frequente para não travarem ou apresentarem riscos de quebra. A Mai..."
+description: "Sistemas de cortina de vidro possuem peças articuladas que exigem manutenção especializada frequente para não travarem ou apresentarem riscos de quebra. A Mai"
 icon: "🧴"
 order: 16
 ---
