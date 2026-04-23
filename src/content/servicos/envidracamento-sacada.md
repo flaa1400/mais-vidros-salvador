@@ -1,6 +1,6 @@
 ---
 title: "Envidraçamento de Sacada em Salvador"
-description: "O Envidraçamento de Sacada é um dos investimentos que mais agregam valor e conforto aos imóveis modernos em Salvador. A Mais Vidros Salvador domina as técni..."
+description: "O Envidraçamento de Sacada é um dos investimentos que mais agregam valor e conforto aos imóveis modernos em Salvador. A Mais Vidros Salvador domina as técni"
 icon: "🏗️"
 order: 9
 ---
