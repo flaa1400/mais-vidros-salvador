@@ -1,5 +1,5 @@
 ---
-title: "Muro de Vidro"
+title: "Muro de Vidro em Salvador"
 description: "Muros de vidro temperado para segurança com visibilidade total em Salvador."
 icon: "🧱"
 order: 13
