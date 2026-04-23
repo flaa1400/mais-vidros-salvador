@@ -1,11 +1,11 @@
 ---
 title: "Box para Banheiro em Salvador"
-description: "A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana, "
+description: "A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana. "
 icon: "🚿"
 order: 1
 ---
 
-A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana, levando modernidade e funcionalidade para o seu lar com projetos que se adaptam a qualquer tamanho de ambiente.
+A Mais Vidros Salvador é especialista em transformar banheiros com soluções de box em vidro temperado de alta resistência. Atendemos toda a capital baiana. levando modernidade e funcionalidade para o seu lar com projetos que se adaptam a qualquer tamanho de ambiente.
 <br /><br />
 Um box de qualidade é essencial para manter a organização e a higiene do seu banheiro, evitando que a água se espalhe e cause danos aos móveis e revestimentos. Utilizamos apenas vidros de 8mm e 10mm certificados, garantindo a segurança total para você e sua família durante o banho.
 <br /><br />
