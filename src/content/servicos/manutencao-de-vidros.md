@@ -1,5 +1,5 @@
 ---
-title: "Manutenção de Vidros"
+title: "Manutenção de Vidros em Salvador"
 description: "Serviço especializado de manutenção preventiva e corretiva de vidros em Salvador."
 icon: "🛠️"
 order: 2
