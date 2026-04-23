@@ -1,5 +1,5 @@
 ---
-title: "Cortina de Vidro"
+title: "Cortina de Vidro em Salvador"
 description: "Instalação de cortina de vidro (envidraçamento) para varandas em Salvador."
 icon: "🌇"
 order: 8
