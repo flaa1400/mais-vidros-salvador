@@ -1,6 +1,6 @@
 ---
 title: "Manutenção de Vidros em Salvador"
-description: "A manutenção periódica é o segredo para a longevidade de qualquer estrutura de vidro, e a Mais Vidros Salvador oferece o suporte técnico mais completo da re..."
+description: "A manutenção periódica é o segredo para a longevidade de qualquer estrutura de vidro, e a Mais Vidros Salvador oferece o suporte técnico mais completo da re"
 icon: "🛠️"
 order: 2
 ---
