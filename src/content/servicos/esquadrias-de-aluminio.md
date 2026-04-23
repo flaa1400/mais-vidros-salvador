@@ -1,5 +1,5 @@
 ---
-title: "Esquadrias de Alumínio"
+title: "Esquadrias de Alumínio em Salvador"
 description: "Fabricação e instalação de esquadrias de alumínio de alto padrão em Salvador."
 icon: "🪟"
 order: 4
