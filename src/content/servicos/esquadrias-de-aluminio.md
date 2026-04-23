@@ -1,6 +1,6 @@
 ---
 title: "Esquadrias de Alumínio em Salvador"
-description: "As Esquadrias de Alumínio são a escolha definitiva para quem busca durabilidade e baixo custo de manutenção, especialmente no clima litorâneo de Salvador. Na ..."
+description: "As Esquadrias de Alumínio são a escolha definitiva para quem busca durabilidade e baixo custo de manutenção, especialmente no clima litorâneo de Salvador. Na "
 icon: "🪟"
 order: 4
 ---
