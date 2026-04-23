@@ -1,5 +1,5 @@
 ---
-title: "Fechamento de Área Externa com Vidro"
+title: "Fechamento de Área Externa com Vidro em Salvador"
 description: "Transforme sua área externa com fechamentos de vidro resistentes e elegantes."
 icon: "🏡"
 order: 11
