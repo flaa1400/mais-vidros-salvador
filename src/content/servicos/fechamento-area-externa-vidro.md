@@ -1,6 +1,6 @@
 ---
 title: "Fechamento de Área Externa com Vidro em Salvador"
-description: "Transformar áreas externas em espaços úteis e protegidos é uma tendência que une praticidade e sofisticação, e a Mais Vidros Salvador é especialista nessa s..."
+description: "Transformar áreas externas em espaços úteis e protegidos é uma tendência que une praticidade e sofisticação, e a Mais Vidros Salvador é especialista nessa s"
 icon: "🏡"
 order: 11
 ---
