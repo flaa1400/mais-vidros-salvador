@@ -1,6 +1,6 @@
 ---
 title: "Muro de Vidro em Salvador"
-description: "Os Muros de Vidro são a solução contemporânea para quem deseja segurança perimetral sem abrir mão da estética e da integração com a rua ou o jardim. A Mais Vi..."
+description: "Os Muros de Vidro são a solução contemporânea para quem deseja segurança perimetral sem abrir mão da estética e da integração com a rua ou o jardim. A Mais Vi"
 icon: "🧱"
 order: 13
 ---
