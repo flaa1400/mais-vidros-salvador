@@ -1,6 +1,6 @@
 ---
 title: "Guarda Corpo de Vidro em Salvador"
-description: "O Guarda Corpo de Vidro é a união perfeita entre segurança máxima e estética minimalista para escadas, mezaninos e varandas. Na Mais Vidros Salvador, instal..."
+description: "O Guarda Corpo de Vidro é a união perfeita entre segurança máxima e estética minimalista para escadas, mezaninos e varandas. Na Mais Vidros Salvador, instal"
 icon: "🪜"
 order: 12
 ---
