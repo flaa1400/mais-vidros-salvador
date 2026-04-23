@@ -1,5 +1,5 @@
 ---
-title: "Vidros Sob Medida"
+title: "Vidros Sob Medida em Salvador"
 description: "Projetos personalizados de vidros sob medida para residências e empresas em Salvador."
 icon: "📏"
 order: 3
