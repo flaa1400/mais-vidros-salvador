@@ -1,5 +1,5 @@
 ---
-title: "Manutenção de Cortina de Vidro"
+title: "Manutenção de Cortina de Vidro em Salvador"
 description: "Manutenção técnica especializada para sistemas de cortina de vidro em Salvador."
 icon: "🧴"
 order: 16
