@@ -1,5 +1,5 @@
 ---
-title: "Guarda Corpo de Vidro"
+title: "Guarda Corpo de Vidro em Salvador"
 description: "Instalação de guarda-corpo de vidro seguindo todas as normas de segurança ABNT."
 icon: "🪜"
 order: 12
