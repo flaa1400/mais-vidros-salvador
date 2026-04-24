@@ -1,6 +1,6 @@
 ---
 title: "Guarda Corpo de Vidro em Salvador"
-description: "O Guarda Corpo de Vidro em Salvador é a união perfeita entre segurança máxima e estética minimalista para escadas e varandas. Instalamos sistemas que prote."
+description: "O Guarda Corpo de Vidro em Salvador é a união perfeita entre segurança máxima e estética minimalista para escadas e varandas de alto padrão em toda a cidade."
 icon: "🪜"
 order: 12
 ---
