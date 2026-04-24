@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     services.forEach((service) => {
       paths.push({
         params: { 
-          serviceSlug: `${service.slug}-em-${bairroSlug}`,
+          serviceSlug: service.slug,
           bairroSlug: bairroSlug
         },
         props: { 
@@ -30,24 +30,28 @@ export async function getStaticPaths() {
 
 const { bairro, service, bairroSlug } = Astro.props;
 
-// Lógica de variação para as 2.400 combinações
+// Dynamically substitute "Salvador" with the neighborhood name
+const serviceTitle = service.data.title.replace('Salvador', bairro);
+const serviceDesc = service.data.description.replace(/Salvador/g, bairro);
+
+// Lógica de variação para as combinações
 const variations = [
   {
-    intro: `Especialistas em **${service.data.title} em ${bairro}**, atendendo com agilidade e precisão técnica toda a região.`,
+    intro: `Especialistas em **${serviceTitle}**, atendendo com agilidade e precisão técnica toda a região.`,
     detail: `Nossa equipe técnica conhece bem as necessidades dos clientes em ${bairro}, oferecendo soluções de vidraçaria que aliam segurança e design moderno.`,
-    safety: `Ao escolher o nosso serviço de **${service.data.title} em ${bairro}**, você garante materiais certificados pelas normas da ABNT e um acabamento impecável.`,
+    safety: `Ao escolher o nosso serviço de **${serviceTitle}**, você garante materiais certificados pelas normas da ABNT e um acabamento impecável.`,
     closing: `Não feche seu projeto em ${bairro} sem falar conosco. Temos o melhor custo-benefício para sua obra ou reforma.`
   },
   {
-    intro: `Buscando **${service.data.title} em ${bairro}**? Entregamos qualidade premium e instalação rápida para sua total tranquilidade.`,
+    intro: `Buscando **${serviceTitle}**? Entregamos qualidade premium e instalação rápida para sua total tranquilidade.`,
     detail: `A Mais Vidros Salvador é referência em ${bairro}, transformando ambientes com a sofisticação e a durabilidade que só o vidro de alta performance oferece.`,
-    safety: `Segurança é nossa prioridade em cada instalação de **${service.data.title} em ${bairro}**, utilizando ferragens de alto padrão resistentes à maresia.`,
-    closing: `Fale agora com um consultor e peça seu orçamento para **${service.data.title} em ${bairro}** via WhatsApp.`
+    safety: `Segurança é nossa prioridade em cada instalação de **${serviceTitle}**, utilizando ferragens de alto padrão resistentes à maresia.`,
+    closing: `Fale agora com um consultor e peça seu orçamento para **${serviceTitle}** via WhatsApp.`
   },
   {
-    intro: `A melhor opção para **${service.data.title} em ${bairro}** com atendimento exclusivo e suporte técnico especializado.`,
+    intro: `A melhor opção para **${serviceTitle}** com atendimento exclusivo e suporte técnico especializado.`,
     detail: `Valorize seu imóvel em ${bairro} com projetos sob medida que se adaptam perfeitamente ao seu espaço e estilo de vida.`,
-    safety: `Garantimos a estanqueidade e a firmeza estrutural em todo serviço de **${service.data.title} em ${bairro}** realizado pela nossa vidraçaria.`,
+    safety: `Garantimos a estanqueidade e a firmeza estrutural em todo serviço de **${serviceTitle}** realizado pela nossa vidraçaria.`,
     closing: `Agende uma visita técnica em ${bairro} e descubra por que somos líderes em vidros de alta qualidade na capital.`
   }
 ];
@@ -57,7 +61,7 @@ const vIndex = (service.slug.length + bairro.length) % variations.length;
 const content = variations[vIndex];
 ---
 
-<Layout title={`${service.data.title} em ${bairro} | Mais Vidros Salvador`}>
+<Layout title={`${serviceTitle} | Mais Vidros Salvador`}>
 	<main>
 		<!-- HERO LOCALIZADO DO SERVIÇO -->
 		<section class="min-h-[60vh] flex items-center bg-gray-900 text-white relative overflow-hidden">
@@ -70,7 +74,7 @@ const content = variations[vIndex];
             <a href={`/vidracaria-em-${bairroSlug}`} class="hover:text-primary">{bairro}</a>
           </nav>
 					<h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tighter">
-						{service.data.title} <span class="text-primary italic">em {bairro}</span>
+						{serviceTitle.split(' em ')[0]} <span class="text-primary italic">em {bairro}</span>
 					</h1>
 					<p class="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-12 font-medium">
 						{content.intro}
@@ -113,17 +117,13 @@ const content = variations[vIndex];
           <div class="sticky top-32 space-y-8">
             <div class="bg-secondary p-12 rounded-[3rem] text-white shadow-2xl">
               <div class="text-6xl mb-8">{service.data.icon}</div>
-              <h4 class="text-3xl font-black mb-6 tracking-tighter">Sobre {service.data.title}</h4>
+              <h4 class="text-3xl font-black mb-6 tracking-tighter">Sobre {serviceTitle}</h4>
               <p class="text-lg opacity-80 leading-relaxed font-medium mb-10">
-                {service.data.description}
+                {serviceDesc}
               </p>
               <a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}`} class="block w-full bg-primary text-secondary text-center py-6 rounded-2xl font-black text-xl hover:bg-white transition-all">
                 Chamar no WhatsApp
               </a>
-            </div>
-            
-            <div class="p-10 border-2 border-dashed border-gray-200 rounded-[3rem]">
-              <p class="text-center font-black text-gray-400 uppercase tracking-widest text-sm">Outros Serviços em {bairro}</p>
             </div>
           </div>
 				</div>
