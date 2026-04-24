@@ -1,6 +1,6 @@
 ---
 title: "Manutenção em Sacadas de Vidro em Salvador"
-description: "Sacadas de vidro sofrem com ventos fortes e a Manutenção em Sacadas de Vidro em Salvador é uma questão de segurança vital para prédios altos. Realizamos a ."
+description: "Sacadas de vidro sofrem com ventos fortes e a Manutenção em Sacadas de Vidro em Salvador é uma questão de segurança vital para prédios altos e residências."
 icon: "🏢"
 order: 5
 ---
