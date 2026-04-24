@@ -1,6 +1,6 @@
 ---
 title: "Porta de Vidro Temperado em Salvador"
-description: "A Porta de Vidro Temperado é um clássico da arquitetura moderna que oferece transparência, resistência e um aproveitamento inteligente de espaço. Na Mais Vidr"
+description: "A Porta de Vidro Temperado é um clássico da arquitetura moderna que oferece transparência, resistência e um aproveitamento inteligente de espaço."
 icon: "🚪"
 order: 15
 ---
