@@ -1,6 +1,6 @@
 ---
 title: "Fechamento de Área Externa com Vidro em Salvador"
-description: "O Fechamento de Área Externa com Vidro em Salvador permite que você aproveite seu espaço gourmet mesmo em dias de chuva. Somos especialistas nessa solução ."
+description: "O Fechamento de Área Externa com Vidro em Salvador permite que você aproveite seu espaço gourmet mesmo em dias de chuva com máxima sofisticação e lazer."
 icon: "🏡"
 order: 11
 ---
