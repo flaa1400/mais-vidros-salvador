@@ -24,7 +24,7 @@ const preposicoes: Record<string, string> = {
   "Barbalho": "no",
   "Barra": "na",
   "Barreiras": "em",
-  "Barris": "nos",
+  "Barris": "no",
   "Beiru Tancredo Neves": "no",
   "Boa Viagem": "na",
   "Boa Vista de Brotas": "na",
