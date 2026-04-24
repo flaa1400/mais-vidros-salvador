@@ -62,3 +62,16 @@ export function getBairroFormatado(name: string) {
   const prep = getPreposicao(name);
   return `${prep} ${name}`;
 }
+
+export function getPreposicaoDe(name: string) {
+  const p = getPreposicao(name);
+  if (p === "no") return "do";
+  if (p === "na") return "da";
+  if (p === "nos") return "dos";
+  if (p === "nas") return "das";
+  return "de";
+}
+
+export function getBairroFormatadoDe(name: string) {
+  return `${getPreposicaoDe(name)} ${name}`;
+}
