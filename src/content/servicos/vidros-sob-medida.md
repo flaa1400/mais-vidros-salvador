@@ -1,6 +1,6 @@
 ---
 title: "Vidros Sob Medida em Salvador"
-description: "Projetos exclusivos exigem soluções personalizadas e somos especialistas em Vidros Sob Medida em Salvador para as necessidades mais complexas. Seja para ta."
+description: "Projetos exclusivos exigem soluções personalizadas e somos especialistas em Vidros Sob Medida em Salvador para as necessidades mais complexas de sua obra."
 icon: "📏"
 order: 3
 ---
