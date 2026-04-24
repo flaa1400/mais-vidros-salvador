@@ -1,6 +1,6 @@
 ---
 title: "Box para Banheiro em Salvador"
-description: "Nossa equipe é especialista em transformar banheiros com as melhores soluções de Box para Banheiro em Salvador utilizando vidro temperado de alta resistênc."
+description: "Nossa equipe é especialista em transformar banheiros com as melhores soluções de Box para Banheiro em Salvador utilizando vidro temperado de alta resistência."
 icon: "🚿"
 order: 1
 ---
