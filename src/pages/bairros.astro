@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { BAIRROS, getSlug } from '../data/bairros';
+
+const sortedBairros = [...BAIRROS].sort();
+---
+
+<Layout title="Bairros Atendidos | Vidraçaria em Salvador">
+	<main class="py-32">
+		<div class="container mx-auto">
+			<div class="text-center mb-20">
+				<h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-8 tracking-tighter">Áreas de Atendimento</h1>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
+					A Mais Vidros Salvador atende com agilidade e precisão técnica em todos os bairros da capital baiana. Confira nossa presença local:
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+				{sortedBairros.map(bairro => (
+					<a 
+						href={`/vidracaria-em-${getSlug(bairro)}`} 
+						class="p-6 bg-white border border-gray-100 rounded-2xl hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all group"
+					>
+						<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight">Vidraçaria em {bairro}</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</main>
+</Layout>
