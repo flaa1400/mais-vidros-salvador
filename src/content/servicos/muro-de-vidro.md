@@ -1,6 +1,6 @@
 ---
 title: "Muro de Vidro em Salvador"
-description: "O Muro de Vidro em Salvador é a solução contemporânea para quem deseja segurança perimetral sem abrir mão da integração com o jardim. Projetamos cercamento."
+description: "O Muro de Vidro em Salvador é a solução contemporânea para quem deseja segurança perimetral sem abrir mão da integração com o jardim de sua residência moderna."
 icon: "🧱"
 order: 13
 ---
