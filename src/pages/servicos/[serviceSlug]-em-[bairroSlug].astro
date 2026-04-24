@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { SITE_CONFIG } from '../../data/config';
-import { BAIRROS, getSlug } from '../../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado } from '../../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -29,30 +29,31 @@ export async function getStaticPaths() {
 }
 
 const { bairro, service, bairroSlug } = Astro.props;
+const bairroFormatado = getBairroFormatado(bairro);
 
-// Dynamically substitute "Salvador" with the neighborhood name
-const serviceTitle = service.data.title.replace('Salvador', bairro);
-const serviceDesc = service.data.description.replace(/Salvador/g, bairro);
+// Dynamically substitute "Salvador" with the neighborhood name grammatically
+const serviceTitle = service.data.title.replace('em Salvador', bairroFormatado);
+const serviceDesc = service.data.description.replace('em Salvador', bairroFormatado);
 
 // Lógica de variação para as combinações
 const variations = [
   {
     intro: `Especialistas em **${serviceTitle}**, atendendo com agilidade e precisão técnica toda a região.`,
-    detail: `Nossa equipe técnica conhece bem as necessidades dos clientes em ${bairro}, oferecendo soluções de vidraçaria que aliam segurança e design moderno.`,
+    detail: `Nossa equipe técnica conhece bem as necessidades dos clientes ${bairroFormatado}, oferecendo soluções de vidraçaria que aliam segurança e design moderno.`,
     safety: `Ao escolher o nosso serviço de **${serviceTitle}**, você garante materiais certificados pelas normas da ABNT e um acabamento impecável.`,
-    closing: `Não feche seu projeto em ${bairro} sem falar conosco. Temos o melhor custo-benefício para sua obra ou reforma.`
+    closing: `Não feche seu projeto ${bairroFormatado} sem falar conosco. Temos o melhor custo-benefício para sua obra ou reforma.`
   },
   {
     intro: `Buscando **${serviceTitle}**? Entregamos qualidade premium e instalação rápida para sua total tranquilidade.`,
-    detail: `A Mais Vidros Salvador é referência em ${bairro}, transformando ambientes com a sofisticação e a durabilidade que só o vidro de alta performance oferece.`,
+    detail: `A Mais Vidros Salvador é referência ${bairroFormatado}, transformando ambientes com a sofisticação e a durabilidade que só o vidro de alta performance oferece.`,
     safety: `Segurança é nossa prioridade em cada instalação de **${serviceTitle}**, utilizando ferragens de alto padrão resistentes à maresia.`,
     closing: `Fale agora com um consultor e peça seu orçamento para **${serviceTitle}** via WhatsApp.`
   },
   {
     intro: `A melhor opção para **${serviceTitle}** com atendimento exclusivo e suporte técnico especializado.`,
-    detail: `Valorize seu imóvel em ${bairro} com projetos sob medida que se adaptam perfeitamente ao seu espaço e estilo de vida.`,
+    detail: `Valorize seu imóvel ${bairroFormatado} com projetos sob medida que se adaptam perfeitamente ao seu espaço e estilo de vida.`,
     safety: `Garantimos a estanqueidade e a firmeza estrutural em todo serviço de **${serviceTitle}** realizado pela nossa vidraçaria.`,
-    closing: `Agende uma visita técnica em ${bairro} e descubra por que somos líderes em vidros de alta qualidade na capital.`
+    closing: `Agende uma visita técnica ${bairroFormatado} e descubra por que somos líderes em vidros de alta qualidade na capital.`
   }
 ];
 
@@ -74,7 +75,7 @@ const content = variations[vIndex];
             <a href={`/vidracaria-em-${bairroSlug}`} class="hover:text-primary">{bairro}</a>
           </nav>
 					<h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tighter">
-						{serviceTitle.split(' em ')[0]} <span class="text-primary italic">em {bairro}</span>
+						{serviceTitle.split(' no ')[0].split(' na ')[0].split(' nos ')[0].split(' em ')[0]} <span class="text-primary italic">{bairroFormatado}</span>
 					</h1>
 					<p class="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed mb-12 font-medium">
 						{content.intro}
@@ -82,7 +83,7 @@ const content = variations[vIndex];
 					
 					<div class="flex flex-wrap gap-6">
 						<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}`} target="_blank" class="bg-primary text-secondary px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/20 flex items-center gap-4">
-							Orçamento em {bairro} <span>📱</span>
+							Orçamento {bairroFormatado} <span>📱</span>
 						</a>
 					</div>
 				</div>
@@ -101,7 +102,7 @@ const content = variations[vIndex];
               {content.safety}
             </p>
             <div class="p-10 bg-gray-50 rounded-[3rem] border border-gray-100 mb-12">
-              <h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter">Vantagens em {bairro}:</h3>
+              <h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter">Vantagens {bairroFormatado}:</h3>
               <ul class="space-y-4">
                 <li class="flex items-center gap-4 font-bold text-gray-700">✅ Atendimento prioritário em toda a região de {bairro}.</li>
                 <li class="flex items-center gap-4 font-bold text-gray-700">✅ Medição técnica gratuita no seu endereço.</li>
@@ -134,7 +135,7 @@ const content = variations[vIndex];
 		<section class="bg-primary">
 			<div class="container mx-auto text-center">
 				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-12 tracking-tighter">
-					Pronto para seu projeto em {bairro}?
+					Pronto para seu projeto {bairroFormatado}?
 				</h2>
 				<p class="text-xl md:text-2xl text-secondary opacity-90 max-w-3xl mx-auto mb-16 font-bold leading-relaxed uppercase tracking-widest">
 					Ligue para o nosso telefone de vidraçaria ou mande uma mensagem agora mesmo.
