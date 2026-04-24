@@ -1,6 +1,6 @@
 ---
 title: "Manutenção de Cortina de Vidro em Salvador"
-description: "A Manutenção de Cortina de Vidro em Salvador especializada é frequente para que os sistemas retráteis não travarem no uso diário. Somos autoridade no conse."
+description: "A Manutenção de Cortina de Vidro em Salvador especializada é frequente para que os sistemas retráteis não travarem no uso diário de sua varanda ou sacada."
 icon: "🧴"
 order: 16
 ---
