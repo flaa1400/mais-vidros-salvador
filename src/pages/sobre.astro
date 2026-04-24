@@ -93,12 +93,19 @@ const values = [
 				</div>
 				<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 grayscale hover:grayscale-0 transition-all duration-700">
 					<!-- Placeholders for team -->
-					{[1,2,3,4].map(i => (
-						<div class="space-y-6">
-							<div class="aspect-square bg-gray-50 rounded-full border-4 border-white shadow-lg flex items-center justify-center text-6xl">🧑‍🔧</div>
+					{[
+						{ img: '/team/team_1.png', name: 'Marcos Silva', role: 'Técnico Instalador Sênior' },
+						{ img: '/team/team_2.png', name: 'Ana Beatriz', role: 'Consultora de Projetos' },
+						{ img: '/team/team_3.png', name: 'Roberto Mendes', role: 'Especialista em Envidraçamento' },
+						{ img: '/team/team_4.png', name: 'Lucas Costa', role: 'Projetista de Esquadrias' }
+					].map(member => (
+						<div class="space-y-6 group">
+							<div class="aspect-square bg-gray-50 rounded-full border-4 border-white shadow-xl overflow-hidden relative">
+								<img src={member.img} alt={member.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+							</div>
 							<div>
-								<h4 class="font-black text-xl text-gray-900">Consultor Técnico {i}</h4>
-								<p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Especialista</p>
+								<h4 class="font-black text-xl text-gray-900">{member.name}</h4>
+								<p class="text-sm font-bold text-secondary uppercase tracking-widest">{member.role}</p>
 							</div>
 						</div>
 					))}
