@@ -1,6 +1,6 @@
 ---
 title: "Manutenção em Sacadas de Vidro em Salvador"
-description: "Sacadas de vidro são estruturas expostas a fortes ventos e intempéries, o que torna a manutenção técnica uma questão de segurança vital em Salvador. A Mais Vi"
+description: "Sacadas de vidro são estruturas expostas a fortes ventos, o que torna a manutenção técnica uma questão de segurança vital em toda a cidade de Salvador."
 icon: "🏢"
 order: 5
 ---
