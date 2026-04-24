@@ -1,6 +1,6 @@
 ---
 title: "Telhado de Vidro ou Cobertura de Vidro em Salvador"
-description: "Coberturas e Telhados de Vidro são ideais para quem deseja criar ambientes iluminados naturalmente, protegendo contra a chuva sem perder a conexão com o céu. Na"
+description: "Coberturas e Telhados de Vidro são ideais para quem deseja criar ambientes iluminados naturalmente, protegendo contra a chuva com total segurança."
 icon: "☀️"
 order: 14
 ---
