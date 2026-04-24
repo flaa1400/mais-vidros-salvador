@@ -1,5 +1,5 @@
 ---
-title: "Telhado de Vidro ou Cobertura de Vidro em Salvador"
+title: "Telhado de Vidro em Salvador"
 description: "Um Telhado de Vidro em Salvador é ideal para criar ambientes iluminados naturalmente, protegendo contra a chuva com total transparência e engenharia de precisão."
 icon: "☀️"
 order: 14
