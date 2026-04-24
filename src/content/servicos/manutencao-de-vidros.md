@@ -1,6 +1,6 @@
 ---
 title: "Manutenção de Vidros em Salvador"
-description: "A manutenção periódica é o segredo para a longevidade e oferecemos o serviço de Manutenção de Vidros em Salvador mais completo da região. Identificamos fal."
+description: "A manutenção periódica é o segredo para a longevidade e oferecemos o serviço de Manutenção de Vidros em Salvador mais completo da região baiana."
 icon: "🛠️"
 order: 2
 ---
