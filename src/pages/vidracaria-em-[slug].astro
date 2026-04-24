@@ -117,11 +117,11 @@ const content = variations[vIndex];
 				
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 					{services.map(s => (
-						<a href={`/servicos/${s.slug}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
+						<a href={`/servicos/${s.slug}-em-${getSlug(bairro)}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
 							<div>
 								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
-								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title}</h3>
-								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description}</p>
+								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('Salvador', bairro)}</h3>
+								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description.replace(/Salvador/g, bairro)}</p>
 							</div>
 							<span class="text-secondary font-black flex items-center gap-2 group-hover:gap-6 transition-all uppercase tracking-[0.2em] text-sm italic">
 								Solicitar em {bairro} <span>&rarr;</span>
