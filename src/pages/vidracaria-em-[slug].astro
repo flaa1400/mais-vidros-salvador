@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/config';
-import { BAIRROS, getSlug } from '../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado } from '../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,41 +12,42 @@ export async function getStaticPaths() {
 }
 
 const { bairro } = Astro.props;
+const bairroFormatado = getBairroFormatado(bairro);
 const services = (await getCollection('servicos')).slice(0, 6);
 
 // Lógica de variação de conteúdo para evitar duplicidade (SEO)
 const variations = [
   {
-    heroTitle: `Vidraçaria em ${bairro}: Qualidade e Rapidez`,
-    heroDesc: `Procurando vidros de alta performance em ${bairro}? Somos especialistas em instalações seguras e acabamento de luxo para sua residência ou empresa.`,
-    aboutTitle: `Sua Vidraçaria de Confiança em ${bairro}`,
-    aboutText: `Atendemos toda a região de ${bairro} com uma equipe técnica altamente qualificada. Se você busca uma vidraçaria em ${bairro} que entenda de precisão e segurança, a Mais Vidros Salvador é sua melhor escolha.`,
-    ctaTitle: `Transforme seu projeto em ${bairro} hoje!`,
-    ctaDesc: `Ligue para o nosso telefone de vidraçaria ou mande uma mensagem no whatsapp agora mesmo para um orçamento em ${bairro}.`
+    heroTitle: `Vidraçaria ${bairroFormatado}: Qualidade e Rapidez`,
+    heroDesc: `Procurando vidros de alta performance ${bairroFormatado}? Somos especialistas em instalações seguras e acabamento de luxo para sua residência ou empresa.`,
+    aboutTitle: `Sua Vidraçaria de Confiança ${bairroFormatado}`,
+    aboutText: `Atendemos toda a região de ${bairro} com uma equipe técnica altamente qualificada. Se você busca uma vidraçaria ${bairroFormatado} que entenda de precisão e segurança, a Mais Vidros Salvador é sua melhor escolha.`,
+    ctaTitle: `Transforme seu projeto ${bairroFormatado} hoje!`,
+    ctaDesc: `Ligue para o nosso telefone de vidraçaria ou mande uma mensagem no whatsapp agora mesmo para um orçamento ${bairroFormatado}.`
   },
   {
-    heroTitle: `Vidros em ${bairro} | Instalação e Manutenção`,
-    heroDesc: `A melhor vidraçaria em ${bairro} para o seu projeto. Trabalhamos com vidros temperados, espelhos e esquadrias com o melhor custo-benefício da região.`,
-    aboutTitle: `Referência em Vidraçaria em ${bairro}`,
-    aboutText: `Com anos de experiência atendendo o bairro de ${bairro}, nossa missão é entregar sofisticação e durabilidade. Cada projeto em ${bairro} é executado com materiais certificados e agilidade total.`,
-    ctaTitle: `Orçamento gratuito em ${bairro}`,
-    ctaDesc: `Buscando vidraçaria perto de mim aberto agora em ${bairro}? Nossa equipe está pronta para te atender com agilidade e transparência.`
+    heroTitle: `Vidros ${bairroFormatado} | Instalação e Manutenção`,
+    heroDesc: `A melhor vidraçaria ${bairroFormatado} para o seu projeto. Trabalhamos com vidros temperados, espelhos e esquadrias com o melhor custo-benefício da região.`,
+    aboutTitle: `Referência em Vidraçaria ${bairroFormatado}`,
+    aboutText: `Com anos de experiência atendendo a região de ${bairro}, nossa missão é entregar sofisticação e durabilidade. Cada projeto ${bairroFormatado} é executado com materiais certificados e agilidade total.`,
+    ctaTitle: `Orçamento gratuito ${bairroFormatado}`,
+    ctaDesc: `Buscando vidraçaria perto de mim aberto agora ${bairroFormatado}? Nossa equipe está pronta para te atender com agilidade e transparência.`
   },
   {
-    heroTitle: `Vidraçaria em ${bairro} de Alta Performance`,
-    heroDesc: `Segurança e beleza para sua obra em ${bairro}. Especialistas em box, cortinas de vidro e projetos sob medida com garantia total de qualidade.`,
-    aboutTitle: `Atendimento Exclusivo em ${bairro}`,
-    aboutText: `Nossa vidraçaria em ${bairro} se destaca pelo acabamento premium e atendimento personalizado. Levamos até você em ${bairro} as tendências mais modernas do mercado de vidros.`,
-    ctaTitle: `Fale com a Mais Vidros em ${bairro}`,
-    ctaDesc: `Não feche seu projeto em ${bairro} sem antes consultar nossos especialistas. Qualidade garantida com o melhor preço da capital.`
+    heroTitle: `Vidraçaria ${bairroFormatado} de Alta Performance`,
+    heroDesc: `Segurança e beleza para sua obra ${bairroFormatado}. Especialistas em box, cortinas de vidro e projetos sob medida com garantia total de qualidade.`,
+    aboutTitle: `Atendimento Exclusivo ${bairroFormatado}`,
+    aboutText: `Nossa vidraçaria ${bairroFormatado} se destaca pelo acabamento premium e atendimento personalizado. Levamos até você ${bairroFormatado} as tendências mais modernas do mercado de vidros.`,
+    ctaTitle: `Fale com a Mais Vidros ${bairroFormatado}`,
+    ctaDesc: `Não feche seu projeto ${bairroFormatado} sem antes consultar nossos especialistas. Qualidade garantida com o melhor preço da capital.`
   },
   {
-    heroTitle: `Soluções em Vidro em ${bairro} e Região`,
+    heroTitle: `Soluções em Vidro ${bairroFormatado} e Região`,
     heroDesc: `Atendemos o bairro de ${bairro} com soluções completas em vidraçaria. Desde reparos urgentes até grandes projetos arquitetônicos com vidros temperados.`,
     aboutTitle: `O melhor acabamento de ${bairro}`,
-    aboutText: `Se você mora em ${bairro} e precisa de um serviço de vidraçaria rápido e limpo, conte conosco. Somos especialistas em transformar ambientes em ${bairro} com a clareza do vidro.`,
-    ctaTitle: `Atendimento imediato em ${bairro}`,
-    ctaDesc: `Precisa de um telefone de vidraçaria em ${bairro}? Clique no botão abaixo e fale direto com um consultor técnico pelo WhatsApp.`
+    aboutText: `Se você mora ${bairroFormatado} e precisa de um serviço de vidraçaria rápido e limpo, conte conosco. Somos especialistas em transformar ambientes ${bairroFormatado} com a clareza do vidro.`,
+    ctaTitle: `Atendimento imediato ${bairroFormatado}`,
+    ctaDesc: `Precisa de um telefone de vidraçaria ${bairroFormatado}? Clique no botão abaixo e fale direto com um consultor técnico pelo WhatsApp.`
   }
 ];
 
@@ -55,14 +56,14 @@ const vIndex = bairro.length % variations.length;
 const content = variations[vIndex];
 ---
 
-<Layout title={`Vidraçaria em ${bairro} | Mais Vidros Salvador`}>
+<Layout title={`Vidraçaria ${bairroFormatado} | Mais Vidros Salvador`}>
 	<main>
 		<!-- HERO SECTION -->
 		<section class="min-h-[70vh] flex items-center bg-gradient-to-br from-white to-gray-50 border-b border-gray-100 overflow-hidden">
 			<div class="container mx-auto">
 				<div class="max-w-4xl">
 					<span class="inline-block px-4 py-2 bg-primary text-secondary font-black text-xs md:text-sm uppercase tracking-[0.2em] rounded-lg mb-8 shadow-md">
-						Atendimento em {bairro}
+						Atendimento {bairroFormatado}
 					</span>
 					<h1 class="text-5xl md:text-7xl font-black text-gray-900 leading-[1.1] mb-8 tracking-tighter">
 						{content.heroTitle}
@@ -110,7 +111,7 @@ const content = variations[vIndex];
 			<div class="container mx-auto">
 				<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
 					<div class="max-w-2xl">
-						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Vidraçaria em {bairro}</h2>
+						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Vidraçaria {bairroFormatado}</h2>
 						<p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm opacity-60">Serviços Disponíveis para sua Região</p>
 					</div>
 				</div>
@@ -120,11 +121,11 @@ const content = variations[vIndex];
 						<a href={`/servicos/${s.slug}-em-${getSlug(bairro)}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
 							<div>
 								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
-								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('Salvador', bairro)}</h3>
-								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description.replace(/Salvador/g, bairro)}</p>
+								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('em Salvador', bairroFormatado)}</h3>
+								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description.replace('em Salvador', bairroFormatado)}</p>
 							</div>
 							<span class="text-secondary font-black flex items-center gap-2 group-hover:gap-6 transition-all uppercase tracking-[0.2em] text-sm italic">
-								Solicitar em {bairro} <span>&rarr;</span>
+								Solicitar {bairroFormatado} <span>&rarr;</span>
 							</span>
 						</a>
 					))}
