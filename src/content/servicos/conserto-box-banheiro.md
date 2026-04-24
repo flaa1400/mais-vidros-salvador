@@ -1,7 +1,7 @@
 ---
 title: "Conserto de Box de Banheiro em Salvador"
 description: "Um box com defeito é um risco e o Conserto de Box de Banheiro em Salvador imediato é fundamental para a segurança da casa e de toda a sua família."
-icon: "🚿"
+icon: "🛠️"
 order: 7
 ---
 
