@@ -1,6 +1,6 @@
 ---
 title: "Conserto de Box de Banheiro em Salvador"
-description: "Um box de banheiro com defeito é um risco iminente de acidente doméstico, por isso o conserto imediato é fundamental. A Mais Vidros Salvador oferece um serv"
+description: "Um box de banheiro com defeito é um risco iminente de acidente doméstico, por isso o conserto imediato e profissional é fundamental para sua segurança."
 icon: "🚿"
 order: 7
 ---
