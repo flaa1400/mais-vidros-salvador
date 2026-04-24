@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/config';
-import { BAIRROS, getSlug, getBairroFormatado } from '../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe } from '../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { bairro } = Astro.props;
 const bairroFormatado = getBairroFormatado(bairro);
+const bairroFormatadoDe = getBairroFormatadoDe(bairro);
 const services = (await getCollection('servicos')).slice(0, 6);
 
 // Lógica de variação de conteúdo para evitar duplicidade (SEO)
@@ -21,7 +22,7 @@ const variations = [
     heroTitle: `Vidraçaria ${bairroFormatado}: Qualidade e Rapidez`,
     heroDesc: `Procurando vidros de alta performance ${bairroFormatado}? Somos especialistas em instalações seguras e acabamento de luxo para sua residência ou empresa.`,
     aboutTitle: `Sua Vidraçaria de Confiança ${bairroFormatado}`,
-    aboutText: `Atendemos toda a região de ${bairro} com uma equipe técnica altamente qualificada. Se você busca uma vidraçaria ${bairroFormatado} que entenda de precisão e segurança, a Mais Vidros Salvador é sua melhor escolha.`,
+    aboutText: `Atendemos toda a região ${bairroFormatadoDe} com uma equipe técnica altamente qualificada. Se você busca uma vidraçaria ${bairroFormatado} que entenda de precisão e segurança, a Mais Vidros Salvador é sua melhor escolha.`,
     ctaTitle: `Transforme seu projeto ${bairroFormatado} hoje!`,
     ctaDesc: `Ligue para o nosso telefone de vidraçaria ou mande uma mensagem no whatsapp agora mesmo para um orçamento ${bairroFormatado}.`
   },
@@ -29,7 +30,7 @@ const variations = [
     heroTitle: `Vidraçaria ${bairroFormatado} | Instalação e Manutenção`,
     heroDesc: `A melhor vidraçaria ${bairroFormatado} para o seu projeto. Trabalhamos com vidros temperados, espelhos e esquadrias com o melhor custo-benefício da região.`,
     aboutTitle: `Referência em Vidraçaria ${bairroFormatado}`,
-    aboutText: `Com anos de experiência atendendo a região de ${bairro}, nossa missão é entregar sofisticação e durabilidade. Cada projeto ${bairroFormatado} é executado com materiais certificados e agilidade total.`,
+    aboutText: `Com anos de experiência atendendo a região ${bairroFormatadoDe}, nossa missão é entregar sofisticação e durabilidade. Cada projeto ${bairroFormatado} é executado com materiais certificados e agilidade total.`,
     ctaTitle: `Orçamento gratuito ${bairroFormatado}`,
     ctaDesc: `Buscando vidraçaria perto de mim aberto agora ${bairroFormatado}? Nossa equipe está pronta para te atender com agilidade e transparência.`
   },
@@ -43,8 +44,8 @@ const variations = [
   },
   {
     heroTitle: `Vidraçaria ${bairroFormatado} e Soluções em Vidro`,
-    heroDesc: `Atendemos o bairro de ${bairro} com soluções completas em vidraçaria. Desde reparos urgentes até grandes projetos arquitetônicos com vidros temperados.`,
-    aboutTitle: `O melhor acabamento de ${bairro}`,
+    heroDesc: `Atendemos a região ${bairroFormatadoDe} com soluções completas em vidraçaria. Desde reparos urgentes até grandes projetos arquitetônicos com vidros temperados.`,
+    aboutTitle: `O melhor acabamento ${bairroFormatadoDe}`,
     aboutText: `Se você mora ${bairroFormatado} e precisa de um serviço de vidraçaria rápido e limpo, conte conosco. Somos especialistas em transformar ambientes ${bairroFormatado} com a clareza do vidro.`,
     ctaTitle: `Atendimento imediato ${bairroFormatado}`,
     ctaDesc: `Precisa de um telefone de vidraçaria ${bairroFormatado}? Clique no botão abaixo e fale direto com um consultor técnico pelo WhatsApp.`
