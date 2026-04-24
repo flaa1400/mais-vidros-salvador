@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { SITE_CONFIG } from '../../data/config';
-import { BAIRROS, getSlug, getBairroFormatado } from '../../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe } from '../../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -30,6 +30,7 @@ export async function getStaticPaths() {
 
 const { bairro, service, bairroSlug } = Astro.props;
 const bairroFormatado = getBairroFormatado(bairro);
+const bairroFormatadoDe = getBairroFormatadoDe(bairro);
 
 // Dynamically substitute "Salvador" with the neighborhood name grammatically
 const serviceTitle = service.data.title.replace('em Salvador', bairroFormatado);
@@ -104,7 +105,7 @@ const content = variations[vIndex];
             <div class="p-10 bg-gray-50 rounded-[3rem] border border-gray-100 mb-12">
               <h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter">Vantagens {bairroFormatado}:</h3>
               <ul class="space-y-4">
-                <li class="flex items-center gap-4 font-bold text-gray-700">✅ Atendimento prioritário em toda a região de {bairro}.</li>
+                <li class="flex items-center gap-4 font-bold text-gray-700">✅ Atendimento prioritário em toda a região {bairroFormatadoDe}.</li>
                 <li class="flex items-center gap-4 font-bold text-gray-700">✅ Medição técnica gratuita no seu endereço.</li>
                 <li class="flex items-center gap-4 font-bold text-gray-700">✅ Instalação limpa e rápida por equipe própria.</li>
                 <li class="flex items-center gap-4 font-bold text-gray-700">✅ Materiais certificados com garantia total.</li>
