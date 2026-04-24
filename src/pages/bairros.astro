@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { BAIRROS, getSlug } from '../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado } from '../data/bairros';
 
 const sortedBairros = [...BAIRROS].sort();
 ---
@@ -21,7 +21,7 @@ const sortedBairros = [...BAIRROS].sort();
 						href={`/vidracaria-em-${getSlug(bairro)}`} 
 						class="p-6 bg-white border border-gray-100 rounded-2xl hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all group"
 					>
-						<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight">Vidraçaria em {bairro}</span>
+						<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight">Vidraçaria {getBairroFormatado(bairro)}</span>
 					</a>
 				))}
 			</div>
