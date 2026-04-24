@@ -1,6 +1,6 @@
 ---
 title: "Manutenção em Esquadrias de Alumínio em Salvador"
-description: "Embora o alumínio seja durável, os acessórios precisam de Manutenção em Esquadrias de Alumínio em Salvador para não comprometer o uso das janelas. Oferecem."
+description: "Embora o alumínio seja durável, os acessórios precisam de Manutenção em Esquadrias de Alumínio em Salvador para não comprometer o uso das janelas e portas."
 icon: "🔧"
 order: 6
 ---
