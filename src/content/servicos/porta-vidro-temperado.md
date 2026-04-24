@@ -1,6 +1,6 @@
 ---
 title: "Porta de Vidro Temperado em Salvador"
-description: "A Porta de Vidro Temperado em Salvador oferece transparência e um aproveitamento inteligente de espaço para entradas modernas. Instalamos modelos que traze."
+description: "A Porta de Vidro Temperado em Salvador oferece transparência e um aproveitamento inteligente de espaço para entradas modernas de empresas e residências baianas."
 icon: "🚪"
 order: 15
 ---
