@@ -1,6 +1,6 @@
 ---
 title: "Envidraçamento de Sacada em Salvador"
-description: "O Envidraçamento de Sacada em Salvador é um dos investimentos que mais agregam valor aos imóveis modernos da nossa capital baiana. Somos especialistas."
+description: "O Envidraçamento de Sacada em Salvador é um dos investimentos que mais agregam valor aos imóveis modernos da nossa capital baiana com total segurança técnica."
 icon: "🏗️"
 order: 9
 ---
