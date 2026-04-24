@@ -1,6 +1,6 @@
 ---
 title: "Cortina de Vidro em Salvador"
-description: "A Cortina de Vidro em Salvador, ou envidraçamento retrátil, é a solução perfeita para integrar a varanda à sala com elegância. Instalamos sistemas modernos."
+description: "A Cortina de Vidro em Salvador, ou envidraçamento retrátil, é a solução perfeita para integrar a varanda à sala com elegância e visibilidade total do ambiente."
 icon: "🌇"
 order: 8
 ---
