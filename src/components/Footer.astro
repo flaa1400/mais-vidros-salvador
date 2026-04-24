@@ -9,13 +9,10 @@ const year = new Date().getFullYear();
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
       <div class="lg:col-span-2">
-        <a href="/" class="flex items-center gap-4 mb-8 group">
-          <div class="w-12 h-12 bg-secondary flex items-center justify-center rounded-2xl border-2 border-primary shadow-lg shadow-primary/10 group-hover:rotate-12 transition-transform">
-            <span class="text-primary font-black text-2xl">V</span>
+        <a href="/" class="inline-block mb-8 group">
+          <div class="group-hover:scale-105 transition-transform duration-500 max-w-[280px]">
+            <img src="/logo.png" alt="Mais Vidros Salvador Logo" class="w-full h-auto object-contain brightness-0 invert opacity-90" />
           </div>
-          <span class="text-3xl font-black text-white tracking-widest leading-none">
-            {SITE_CONFIG.nap.name.split(' ')[0].toUpperCase()} <br/> <span class="text-primary italic">{SITE_CONFIG.nap.name.split(' ').slice(1).join(' ').toUpperCase()}</span>
-          </span>
         </a>
         <p class="text-gray-400 text-xl max-w-md leading-relaxed mb-10 font-medium italic">
           "Referência em Salvador para projetos que buscam a clareza, segurança e sofisticação do vidro de alta performance."
