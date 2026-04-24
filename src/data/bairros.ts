@@ -7,6 +7,44 @@ export const BAIRROS = [
   "Cajazeiras V", "Cajazeiras VI", "Cajazeiras VII", "Cajazeiras VIII"
 ];
 
+const preposicoes: Record<string, string> = {
+  "Acupe": "no",
+  "Aeroporto": "no",
+  "Águas Claras": "em",
+  "Alto da Terezinha": "no",
+  "Alto das Pombas": "no",
+  "Alto do Cabrito": "no",
+  "Alto do Coqueirinho": "no",
+  "Amaralina": "em",
+  "Areia Branca": "na",
+  "Arenoso": "no",
+  "Arraial do Retiro": "no",
+  "Bairro da Paz": "no",
+  "Baixa de Quintas": "na",
+  "Barbalho": "no",
+  "Barra": "na",
+  "Barreiras": "em",
+  "Barris": "nos",
+  "Beiru Tancredo Neves": "no",
+  "Boa Viagem": "na",
+  "Boa Vista de Brotas": "na",
+  "Boa Vista de São Caetano": "na",
+  "Boca da Mata": "na",
+  "Boca do Rio": "na",
+  "Bom Juá": "no",
+  "Bonfim": "no",
+  "Brotas": "em",
+  "Cabula": "no",
+  "Cabula VI": "no",
+  "Caixa D’Água": "na",
+  "Cajazeiras II": "em",
+  "Cajazeiras IV": "em",
+  "Cajazeiras V": "em",
+  "Cajazeiras VI": "em",
+  "Cajazeiras VII": "em",
+  "Cajazeiras VIII": "em"
+};
+
 export function getSlug(name: string) {
   return name.toLowerCase()
     .normalize("NFD")
@@ -14,4 +52,13 @@ export function getSlug(name: string) {
     .replace(/[^a-z0-9]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+export function getPreposicao(name: string) {
+  return preposicoes[name] || "em";
+}
+
+export function getBairroFormatado(name: string) {
+  const prep = getPreposicao(name);
+  return `${prep} ${name}`;
 }
