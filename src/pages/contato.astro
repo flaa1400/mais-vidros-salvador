@@ -74,10 +74,10 @@ const services = await getCollection('servicos');
 
 					<!-- FORM -->
 					<div class="bg-gray-50 p-12 md:p-20 rounded-[4rem] border border-gray-100 shadow-sm relative">
-						<form class="space-y-10 relative z-10">
+						<form id="contact-form" class="space-y-10 relative z-10">
 							<div>
 								<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Sobre o que deseja falar?</label>
-								<select class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl font-bold appearance-none">
+								<select id="form-servico" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl font-bold appearance-none">
 									{services.map(s => (
 										<option value={s.data.title.replace(' em Salvador', '')}>{s.data.title.replace(' em Salvador', '')}</option>
 									))}
@@ -87,22 +87,43 @@ const services = await getCollection('servicos');
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 								<div>
 									<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Seu Nome</label>
-									<input type="text" placeholder="Ex: João Silva" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
+									<input id="form-nome" type="text" placeholder="Ex: João Silva" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
 								</div>
 								<div>
 									<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">WhatsApp</label>
-									<input type="tel" placeholder="(71) 99999-9999" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
+									<input id="form-whatsapp" type="tel" placeholder="(71) 99999-9999" class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl" />
 								</div>
 							</div>
 							<div>
 								<label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Como podemos te ajudar?</label>
-								<textarea rows="4" placeholder="Descreva brevemente sua necessidade..." class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl resize-none"></textarea>
+								<textarea id="form-mensagem" rows="4" placeholder="Descreva brevemente sua necessidade..." class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl resize-none"></textarea>
 							</div>
 							<button type="submit" class="w-full bg-secondary text-white p-10 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl flex items-center justify-center gap-6 group">
-								Enviar minha Solicitação 
-								<span class="group-hover:translate-x-3 transition-transform">&rarr;</span>
+								Enviar pelo WhatsApp
+								<span class="group-hover:translate-x-3 transition-transform">📱</span>
 							</button>
 						</form>
+
+						<script>
+							const form = document.getElementById('contact-form');
+							form?.addEventListener('submit', function(e) {
+								e.preventDefault();
+								const servico  = (document.getElementById('form-servico') as HTMLSelectElement)?.value || '';
+								const nome     = (document.getElementById('form-nome') as HTMLInputElement)?.value || '';
+								const whatsapp = (document.getElementById('form-whatsapp') as HTMLInputElement)?.value || '';
+								const mensagem = (document.getElementById('form-mensagem') as HTMLTextAreaElement)?.value || '';
+
+								const texto =
+									`Olá! Vim pelo site da Mais Vidros Salvador e gostaria de um orçamento. 🪟\n\n` +
+									`*Serviço:* ${servico}\n` +
+									`*Nome:* ${nome || 'Não informado'}\n` +
+									`*WhatsApp:* ${whatsapp || 'Não informado'}\n` +
+									(mensagem ? `*Mensagem:* ${mensagem}` : '');
+
+								const url = `https://wa.me/5511964299548?text=${encodeURIComponent(texto)}`;
+								window.open(url, '_blank');
+							});
+						</script>
 					</div>
 				</div>
 			</div>
