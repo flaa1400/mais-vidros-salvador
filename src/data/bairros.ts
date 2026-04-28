@@ -75,3 +75,15 @@ export function getPreposicaoDe(name: string) {
 export function getBairroFormatadoDe(name: string) {
   return `${getPreposicaoDe(name)} ${name}`;
 }
+
+export function getBairroPageSlug(name: string) {
+  const prep = getPreposicao(name);
+  const slug = getSlug(name);
+  return `vidracaria-${prep}-${slug}`;
+}
+
+export function getServiceBairroSlug(serviceSlug: string, bairroName: string) {
+  const prep = getPreposicao(bairroName);
+  const bairroSlug = getSlug(bairroName);
+  return `${serviceSlug}-${prep}-${bairroSlug}`;
+}
