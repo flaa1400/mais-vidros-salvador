@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/config';
-import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe } from '../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe, getBairroPageSlug, getServiceBairroSlug } from '../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   return BAIRROS.map((bairro) => ({
-    params: { slug: getSlug(bairro) },
+    params: { bairroPageSlug: getBairroPageSlug(bairro) },
     props: { bairro },
   }));
 }
@@ -119,7 +119,7 @@ const content = variations[vIndex];
 				
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 					{services.map(s => (
-						<a href={`/servicos/${s.slug}-em-${getSlug(bairro)}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
+						<a href={`/servicos/${getServiceBairroSlug(s.slug, bairro)}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
 							<div>
 								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
 								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('em Salvador', bairroFormatado)}</h3>
