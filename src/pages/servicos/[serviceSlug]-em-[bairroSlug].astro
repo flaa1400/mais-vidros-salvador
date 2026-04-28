@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { SITE_CONFIG } from '../../data/config';
-import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe } from '../../data/bairros';
+import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe, getBairroPageSlug, getServiceBairroSlug } from '../../data/bairros';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -9,17 +9,14 @@ export async function getStaticPaths() {
   const paths = [];
 
   BAIRROS.forEach((bairro) => {
-    const bairroSlug = getSlug(bairro);
     services.forEach((service) => {
       paths.push({
         params: { 
-          serviceSlug: service.slug,
-          bairroSlug: bairroSlug
+          serviceBairroSlug: getServiceBairroSlug(service.slug, bairro)
         },
         props: { 
           bairro, 
-          service,
-          bairroSlug
+          service
         },
       });
     });
@@ -28,7 +25,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { bairro, service, bairroSlug } = Astro.props;
+const { bairro, service } = Astro.props;
 const bairroFormatado = getBairroFormatado(bairro);
 const bairroFormatadoDe = getBairroFormatadoDe(bairro);
 
@@ -73,7 +70,7 @@ const content = variations[vIndex];
 					<nav class="flex gap-4 mb-8 text-sm font-bold uppercase tracking-widest opacity-60">
             <a href="/" class="hover:text-primary">Início</a>
             <span>/</span>
-            <a href={`/vidracaria-em-${bairroSlug}`} class="hover:text-primary">{bairro}</a>
+            <a href={`/${getBairroPageSlug(bairro)}`} class="hover:text-primary">{bairro}</a>
           </nav>
 					<h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tighter">
 						{serviceTitle.split(' no ')[0].split(' na ')[0].split(' nos ')[0].split(' em ')[0]} <span class="text-primary italic">{bairroFormatado}</span>
