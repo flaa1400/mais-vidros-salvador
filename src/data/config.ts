@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
     address: "Av. Cardeal Avelar Brandão Villela, 1647 - Mata Escura, Salvador - BA",
     phone: "(11) 96429-9548",
     whatsapp: "5511964299548",
-    email: "contato@maisvidrossalvador.com.br",
+    email: "Maisvidrossalvador@outlook.com",
     location: {
       city: "Salvador",
       state: "BA",
