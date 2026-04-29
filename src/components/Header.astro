@@ -14,7 +14,7 @@ const navItems = [
     <div class="flex items-center justify-between h-36 md:h-44">
       <!-- LOGO -->
       <a href="/" class="flex items-center gap-3 group">
-        <img src="/logo.png" alt="Mais Vidros Salvador Logo" class="h-32 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-500" />
+        <img src="/logo.png" alt="Mais Vidros Salvador Logo" width="200" height="80" class="h-32 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-500" loading="eager" fetchpriority="high" />
       </a>
       
       <!-- DESKTOP NAV -->
@@ -30,7 +30,7 @@ const navItems = [
       </nav>
 
       <!-- BOTÃO MOBILE -->
-      <button id="menu-open-btn" class="lg:hidden p-2 text-secondary">
+      <button id="menu-open-btn" class="lg:hidden p-2 text-secondary" aria-label="Abrir menu de navegação">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
         </svg>
@@ -52,7 +52,7 @@ const navItems = [
       </div>
       <span class="text-white font-black text-xl italic">Menu Principal</span>
     </div>
-    <button id="menu-close-btn" class="text-white p-2">
+    <button id="menu-close-btn" class="text-white p-2" aria-label="Fechar menu de navegação">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
       </svg>
