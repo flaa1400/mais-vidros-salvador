@@ -70,7 +70,7 @@ const content = variations[vIndex];
 					<nav class="flex gap-4 mb-8 text-sm font-bold uppercase tracking-widest opacity-60">
             <a href="/" class="hover:text-primary">Início</a>
             <span>/</span>
-            <a href={`/${getBairroPageSlug(bairro)}`} class="hover:text-primary">{bairro}</a>
+            <a href={`/${getBairroPageSlug(bairro)}/`} class="hover:text-primary">{bairro}</a>
           </nav>
 					<h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-8 tracking-tighter">
 						{serviceTitle.split(' no ')[0].split(' na ')[0].split(' nos ')[0].split(' em ')[0]} <span class="text-primary italic">{bairroFormatado}</span>
