@@ -1,11 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import fachadaImg from '../assets/fachada.jpg';
+import team1 from '../assets/team/team_1.png';
+import team2 from '../assets/team/team_2.png';
+import team3 from '../assets/team/team_3.png';
+import team4 from '../assets/team/team_4.png';
 
 const values = [
 	{ title: "Qualidade", desc: "Materiais certificados e acabamento de alto padrão em cada detalhe.", icon: "💎" },
 	{ title: "Segurança", desc: "Foco total nas normas da ABNT para garantir a proteção da sua família.", icon: "🛡️" },
 	{ title: "Ética", desc: "Transparência total nos orçamentos e prazos de entrega reais.", icon: "🤝" },
 	{ title: "Inovação", desc: "Sempre antenados com as novas tendências de design em vidro.", icon: "💡" }
+];
+
+const team = [
+	{ img: team1, name: 'Marcos Silva', role: 'Técnico Instalador Sênior' },
+	{ img: team2, name: 'Ana Beatriz', role: 'Consultora de Projetos' },
+	{ img: team3, name: 'Roberto Mendes', role: 'Especialista em Envidraçamento' },
+	{ img: team4, name: 'Lucas Costa', role: 'Projetista de Esquadrias' }
 ];
 ---
 
@@ -36,10 +49,12 @@ const values = [
 						</div>
 					</div>
 					<div class="rounded-[3rem] aspect-[4/3] overflow-hidden border-8 border-white shadow-2xl skew-y-3 group">
-						<img 
-							src="/fachada.jpg" 
+						<Image 
+							src={fachadaImg} 
 							alt="Fachada Mais Vidros Salvador" 
 							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+							width={800}
+							height={600}
 						/>
 					</div>
 				</div>
@@ -97,15 +112,10 @@ const values = [
 				</div>
 				<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 grayscale hover:grayscale-0 transition-all duration-700">
 					<!-- Placeholders for team -->
-					{[
-						{ img: '/team/team_1.png', name: 'Marcos Silva', role: 'Técnico Instalador Sênior' },
-						{ img: '/team/team_2.png', name: 'Ana Beatriz', role: 'Consultora de Projetos' },
-						{ img: '/team/team_3.png', name: 'Roberto Mendes', role: 'Especialista em Envidraçamento' },
-						{ img: '/team/team_4.png', name: 'Lucas Costa', role: 'Projetista de Esquadrias' }
-					].map(member => (
+					{team.map(member => (
 						<div class="space-y-6 group">
 							<div class="aspect-square bg-gray-50 rounded-full border-4 border-white shadow-xl overflow-hidden relative">
-								<img src={member.img} alt={member.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+								<Image src={member.img} alt={member.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width={300} height={300} />
 							</div>
 							<div>
 								<h4 class="font-black text-xl text-gray-900">{member.name}</h4>
