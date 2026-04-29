@@ -30,6 +30,7 @@ export default defineConfig({
   site: SITE_CONFIG.url,
   output: 'static',
   trailingSlash: 'ignore',
+  prefetch: true,
   integrations: [
     tailwind(),
     customSitemap() // Nossa integração manual e segura
