@@ -99,8 +99,8 @@ const services = await getCollection('servicos');
 								<textarea id="form-mensagem" rows="4" placeholder="Descreva brevemente sua necessidade..." class="w-full bg-white border-2 border-gray-100 p-6 rounded-2xl focus:border-primary outline-none transition-all text-xl resize-none"></textarea>
 							</div>
 							<button type="submit" class="w-full bg-secondary text-white p-10 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl flex items-center justify-center gap-6 group">
-								Enviar pelo WhatsApp
-								<span class="group-hover:translate-x-3 transition-transform">📱</span>
+								Enviar por E-mail
+								<span class="group-hover:translate-x-3 transition-transform">📧</span>
 							</button>
 						</form>
 
@@ -113,15 +113,16 @@ const services = await getCollection('servicos');
 								const whatsapp = (document.getElementById('form-whatsapp') as HTMLInputElement)?.value || '';
 								const mensagem = (document.getElementById('form-mensagem') as HTMLTextAreaElement)?.value || '';
 
-								const texto =
-									`Olá! Vim pelo site da Mais Vidros Salvador e gostaria de um orçamento. 🪟\n\n` +
-									`*Serviço:* ${servico}\n` +
-									`*Nome:* ${nome || 'Não informado'}\n` +
-									`*WhatsApp:* ${whatsapp || 'Não informado'}\n` +
-									(mensagem ? `*Mensagem:* ${mensagem}` : '');
+								const corpo =
+									`Olá! Gostaria de um orçamento.\n\n` +
+									`Serviço: ${servico}\n` +
+									`Nome: ${nome || 'Não informado'}\n` +
+									`WhatsApp: ${whatsapp || 'Não informado'}\n` +
+									(mensagem ? `Mensagem: ${mensagem}` : '');
 
-								const url = `https://wa.me/5511964299548?text=${encodeURIComponent(texto)}`;
-								window.open(url, '_blank');
+								const subject = `Orçamento Site - ${servico} - ${nome}`;
+								const mailtoUrl = `mailto:Maisvidrossalvador@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(corpo)}`;
+								window.location.href = mailtoUrl;
 							});
 						</script>
 					</div>
