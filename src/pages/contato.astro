@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { SITE_CONFIG } from '../data/config';
 
 const services = await getCollection('servicos');
 ---
@@ -134,7 +135,7 @@ const services = await getCollection('servicos');
 		<section class="bg-primary">
 			<div class="container mx-auto text-center">
 				<h2 class="text-4xl md:text-6xl font-black text-secondary mb-12">Atendimento Imediato?</h2>
-				<a href="https://wa.me/5511964299548" target="_blank" class="bg-secondary text-white px-16 py-8 rounded-[2.5rem] font-black text-3xl hover:scale-105 transition-all shadow-2xl flex items-center gap-6 mx-auto w-fit">
+				<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="bg-secondary text-white px-16 py-8 rounded-[2.5rem] font-black text-3xl hover:scale-105 transition-all shadow-2xl flex items-center gap-6 mx-auto w-fit">
 					Chamar no WhatsApp
 					<span>💬</span>
 				</a>
