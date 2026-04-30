@@ -31,6 +31,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   prefetch: true,
+  build: {
+    inlineStylesheets: 'always'
+  },
   integrations: [
     tailwind(),
     customSitemap() // Nossa integração manual e segura
