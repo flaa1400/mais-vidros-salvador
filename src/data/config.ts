@@ -1,3 +1,4 @@
+// SITE CONFIGURATION - Last Update: 2026-04-30
 export const SITE_CONFIG = {
   title: "Mais Vidros Salvador | Vidraçaria Especialista em Vidros e Espelhos",
   description: "A melhor vidraçaria de Salvador. Especialistas em box para banheiro, espelhos sob medida, cortinas de vidro e manutenção de vidros.",
