@@ -5,6 +5,7 @@ import SchemaLocalBusiness from '../components/SchemaLocalBusiness.astro';
 import WhatsAppBtn from '../components/WhatsAppBtn.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import logoImg from '../assets/logo.png';
 import '../styles/global.css';
 
 interface Props {
@@ -20,6 +21,8 @@ const { title, description } = Astro.props;
 	<head>
 		<SEO title={title} description={description} />
 		<SchemaLocalBusiness />
+		<!-- Preload Logo for LCP -->
+		<link rel="preload" href={logoImg.src} as="image" type="image/png" />
 		<!-- Google Fonts: Inter -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
