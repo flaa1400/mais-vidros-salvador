@@ -6,6 +6,7 @@ import team1 from '../assets/team/team_1.png';
 import team2 from '../assets/team/team_2.png';
 import team3 from '../assets/team/team_3.png';
 import team4 from '../assets/team/team_4.png';
+import { SITE_CONFIG } from '../data/config';
 
 const values = [
 	{ title: "Qualidade", desc: "Materiais certificados e acabamento de alto padrão em cada detalhe.", icon: "💎" },
@@ -131,8 +132,8 @@ const team = [
 		<section class="bg-primary">
 			<div class="container mx-auto text-center">
 				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-10">Pronto para começar seu projeto?</h2>
-				<a href="/contato" class="inline-block bg-secondary text-white px-12 py-6 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl">
-					Solicitar Consultoria Grátis
+				<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="inline-block bg-secondary text-white px-12 py-6 rounded-[2rem] font-black text-2xl hover:bg-black transition-all shadow-2xl">
+					Solicite um Orçamento Grátis
 				</a>
 			</div>
 		</section>
