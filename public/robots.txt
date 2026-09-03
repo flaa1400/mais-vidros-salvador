@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maisvidrossalvador.com.br/sitemap-index.xml
+Sitemap: https://www.maisvidrossalvador.com.br/sitemap-index.xml

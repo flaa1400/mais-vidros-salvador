@@ -1,0 +1,38 @@
+---
+import { getServiceBairroSlug } from '../data/bairros';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  bairroName: string;
+  bairroFormatado: string;
+  services: CollectionEntry<'servicos'>[];
+}
+
+const { bairroName, bairroFormatado, services } = Astro.props;
+---
+
+<section id="servicos" class="bg-white">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Vidraçaria {bairroFormatado}</h2>
+        <p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm opacity-60">Serviços Disponíveis para sua Região</p>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {services.map(s => (
+        <a href={`/servicos/${getServiceBairroSlug(s.slug, bairroName)}/`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
+          <div>
+            <div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
+            <h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('em Salvador', bairroFormatado)}</h3>
+            <p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description.replace('em Salvador', bairroFormatado)}</p>
+          </div>
+          <span class="text-secondary font-black flex items-center gap-2 group-hover:gap-6 transition-all uppercase tracking-[0.2em] text-sm italic">
+            Mais Informações <span>&rarr;</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -21,7 +21,19 @@ const servicesCollection = defineCollection({
   }),
 });
 
+const bairrosCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    bairroName: z.string(),
+    preposicao: z.string(),
+    layoutStyle: z.string().default('layout-1'),
+  }),
+});
+
 export const collections = {
   'blog': blogCollection,
   'servicos': servicesCollection,
+  'bairros': bairrosCollection,
 };

@@ -4,7 +4,10 @@ export const BAIRROS = [
   "Baixa de Quintas", "Barbalho", "Barra", "Barreiras", "Barris", "Beiru Tancredo Neves", "Boa Viagem", 
   "Boa Vista de Brotas", "Boa Vista de São Caetano", "Boca da Mata", "Boca do Rio", "Bom Juá", 
   "Bonfim", "Brotas", "Cabula", "Cabula VI", "Caixa D’Água", "Cajazeiras II", "Cajazeiras IV", 
-  "Cajazeiras V", "Cajazeiras VI", "Cajazeiras VII", "Cajazeiras VIII"
+  "Cajazeiras V", "Cajazeiras VI", "Cajazeiras VII", "Cajazeiras VIII",
+  "Itapuã", "Pituba", "Pernambués", "Paripe", "Valéria", "Periperi", "Mussurunga", "São Cristóvão", 
+  "Stella Maris", "Patamares", "Piatã", "Pituaçu", "Imbuí", "Federação", "Fazenda Grande do Retiro", 
+  "São Caetano", "Pirajá", "Castelo Branco"
 ];
 
 const preposicoes: Record<string, string> = {
@@ -42,7 +45,25 @@ const preposicoes: Record<string, string> = {
   "Cajazeiras V": "em",
   "Cajazeiras VI": "em",
   "Cajazeiras VII": "em",
-  "Cajazeiras VIII": "em"
+  "Cajazeiras VIII": "em",
+  "Itapuã": "em",
+  "Pituba": "na",
+  "Pernambués": "em",
+  "Paripe": "em",
+  "Valéria": "em",
+  "Periperi": "em",
+  "Mussurunga": "em",
+  "São Cristóvão": "em",
+  "Stella Maris": "em",
+  "Patamares": "em",
+  "Piatã": "em",
+  "Pituaçu": "em",
+  "Imbuí": "no",
+  "Federação": "na",
+  "Fazenda Grande do Retiro": "na",
+  "São Caetano": "em",
+  "Pirajá": "em",
+  "Castelo Branco": "em"
 };
 
 export function getSlug(name: string) {

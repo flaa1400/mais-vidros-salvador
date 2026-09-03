@@ -9,18 +9,24 @@ const schema = {
   "@id": SITE_CONFIG.url,
   "url": SITE_CONFIG.url,
   "telephone": SITE_CONFIG.nap.phone,
+  "priceRange": "$$",
+  "sameAs": [
+    SITE_CONFIG.social.instagram,
+    SITE_CONFIG.social.facebook,
+    "https://x.com/MaisVidros"
+  ].filter(Boolean),
   "address": {
     "@type": "PostalAddress",
     "streetAddress": SITE_CONFIG.nap.address.split(' - ')[0],
     "addressLocality": "Salvador",
     "addressRegion": "BA",
-    "postalCode": "",
+    "postalCode": "41225-000",
     "addressCountry": "BR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": -12.9333,
-    "longitude": -38.4343
+    "latitude": -12.9228472,
+    "longitude": -38.4503953
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -35,6 +41,7 @@ const schema = {
     "closes": "18:00"
   }
 };
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+{isHome && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

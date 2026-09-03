@@ -1,11 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import fachadaImg from '../assets/fachada.jpg';
-import team1 from '../assets/team/team_1.png';
-import team2 from '../assets/team/team_2.png';
-import team3 from '../assets/team/team_3.png';
-import team4 from '../assets/team/team_4.png';
+import vidroPremiumImg from '../assets/vidro_premium.png';
 import { SITE_CONFIG } from '../data/config';
 
 const values = [
@@ -15,11 +11,10 @@ const values = [
 	{ title: "Inovação", desc: "Sempre antenados com as novas tendências de design em vidro.", icon: "💡" }
 ];
 
-const team = [
-	{ img: team1, name: 'Marcos Silva', role: 'Técnico Instalador Sênior' },
-	{ img: team2, name: 'Ana Beatriz', role: 'Consultora de Projetos' },
-	{ img: team3, name: 'Roberto Mendes', role: 'Especialista em Envidraçamento' },
-	{ img: team4, name: 'Lucas Costa', role: 'Projetista de Esquadrias' }
+const infrastructure = [
+	{ title: "Frota Própria", desc: "Transporte seguro e adaptado para evitar riscos de quebra e atrasos na entrega dos vidros até a sua obra.", icon: "🚛" },
+	{ title: "Medição Digital", desc: "Utilização de equipamentos a laser de última geração, garantindo precisão milimétrica em cada projeto.", icon: "📏" },
+	{ title: "Resistência à Maresia", desc: "Uso exclusivo de perfis e ferragens em aço inox ou alumínio anodizado de alta qualidade, ideais para o clima de Salvador.", icon: "🌊" }
 ];
 ---
 
@@ -54,8 +49,8 @@ const team = [
 					</div>
 					<div class="rounded-[3rem] aspect-[4/3] overflow-hidden border-8 border-white shadow-2xl skew-y-3 group">
 						<Image 
-							src={fachadaImg} 
-							alt="Fachada Mais Vidros Salvador" 
+							src={vidroPremiumImg} 
+							alt="Instalação de Vidro Premium de Alto Padrão" 
 							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
 							width={800}
 							height={600}
@@ -105,26 +100,21 @@ const team = [
 			</div>
 		</section>
 
-		<!-- EQUIPE -->
+		<!-- INFRAESTRUTURA -->
 		<section class="bg-white">
 			<div class="container mx-auto text-center">
 				<div class="max-w-3xl mx-auto mb-20">
-					<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8">Atendimento <span class="text-secondary italic">Humanizado.</span></h2>
+					<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-8">Nossa <span class="text-secondary italic">Infraestrutura.</span></h2>
 					<p class="text-xl text-gray-600 leading-relaxed font-medium">
-						Nossa equipe de consultores técnicos não apenas instala vidros, eles entendem o seu projeto e sugerem as melhores soluções de design e economia.
+						Investimos em tecnologia, logística própria e materiais de ponta para garantir a melhor experiência e durabilidade em cada instalação em Salvador.
 					</p>
 				</div>
-				<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 grayscale hover:grayscale-0 transition-all duration-700">
-					<!-- Placeholders for team -->
-					{team.map(member => (
-						<div class="space-y-6 group">
-							<div class="aspect-square bg-gray-50 rounded-full border-4 border-white shadow-xl overflow-hidden relative">
-								<Image src={member.img} alt={member.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width={300} height={300} />
-							</div>
-							<div>
-								<h4 class="font-black text-xl text-gray-900">{member.name}</h4>
-								<p class="text-sm font-bold text-secondary uppercase tracking-widest">{member.role}</p>
-							</div>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+					{infrastructure.map(item => (
+						<div class="bg-gray-50 p-12 rounded-[2.5rem] shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+							<div class="text-6xl mb-8 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
+							<h3 class="text-2xl font-black text-gray-900 mb-6">{item.title}</h3>
+							<p class="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
 						</div>
 					))}
 				</div>

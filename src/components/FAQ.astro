@@ -1,0 +1,106 @@
+---
+import { SITE_CONFIG } from '../data/config';
+import { getPreposicaoDe } from '../data/bairros';
+
+interface Props {
+  bairroName?: string;
+  preposicao?: string;
+}
+
+const { bairroName, preposicao } = Astro.props;
+
+const localTerm = bairroName ? `${preposicao} ${bairroName}, Salvador-BA` : "em Salvador-BA";
+const localTermOnly = bairroName ? `${preposicao} ${bairroName}` : "em Salvador-BA";
+
+const titleText = bairroName 
+  ? `Perguntas Frequentes Sobre Vidraçaria ${preposicao} ${bairroName}, Salvador-BA` 
+  : "Perguntas Frequentes Sobre Vidraçaria em Salvador-BA";
+
+const faqs = [
+  {
+    question: `Qual é o preço de uma vidraçaria ${localTerm} perto de mim?`,
+    answer: `O preço médio de um serviço de vidraçaria ${localTermOnly} depende do tipo de vidro (temperado, laminado ou comum), espessura e do tipo de instalação (box, janela, espelho sob medida). Solicite um orçamento rápido pelo WhatsApp para receber uma cotação exata e personalizada em poucos minutos.`
+  },
+  {
+    question: `Quais tipos de vidro vocês trabalham ${localTerm}?`,
+    answer: `Trabalhamos com vidros temperados e laminados de alta resistência, espelhos sob medida (comuns e bisotados), vidros jateados, float comum, além de esquadrias e ferragens premium para garantir o melhor acabamento e durabilidade do seu projeto ${localTermOnly}.`
+  },
+  {
+    question: `Vocês fazem instalação em residências e comércios ${localTerm}?`,
+    answer: `Sim! Atendemos projetos de todos os portes. Nossa equipe técnica é especializada em instalações residenciais (boxes de banheiro, divisórias, espelhos de parede) e comerciais (vitrines de lojas, portas pivotantes, fachadas de vidro e divisórias de escritórios) ${localTermOnly}.`
+  },
+  {
+    question: `Uma vidraçaria ${localTerm} próxima de mim fica mais barata?`,
+    answer: `Geralmente sim. Contratar uma vidraçaria mais próxima ${localTermOnly} reduz o custo de deslocamento de materiais e pessoal técnico. Isso permite um preço final mais competitivo e maior agilidade tanto na entrega quanto em eventuais suportes pós-venda.`
+  },
+  {
+    question: `O serviço de medição é gratuito ${localTerm}?`,
+    answer: `Sim, oferecemos medição técnica gratuita ${bairroName ? `na região ${getPreposicaoDe(bairroName)} ${bairroName}` : 'em Salvador'} para orçamentos aprovados ou em andamento. Nossos técnicos vão até o seu local com equipamentos de precisão para garantir que as dimensões fiquem perfeitas e sem erros.`
+  },
+  {
+    question: `Como contratar uma boa vidraçaria ${localTerm}?`,
+    answer: `Busque sempre por vidraçarias que utilizam materiais certificados (dentro das normas de segurança da ABNT), que possuam referências locais e ofereçam garantia formal por escrito de instalação, assim como na Mais Vidros Salvador.`
+  },
+  {
+    question: `Quanto tempo demora a instalação de um box ou porta ${localTerm}?`,
+    answer: `O tempo de instalação no local é de aproximadamente 1 a 3 horas. No entanto, o processo completo que envolve a medição técnica, corte, têmpera do vidro de segurança na fábrica e entrega final costuma levar entre 7 e 12 dias úteis para residências e comércios ${localTermOnly}.`
+  },
+  {
+    question: `Posso agendar a medição ${localTerm}?`,
+    answer: `Com certeza! Você pode agendar a visita técnica de medição no melhor dia e horário para você, de forma prática e direta pelo nosso WhatsApp de atendimento.`
+  },
+  {
+    question: "Quais métodos de pagamento são aceitos?",
+    answer: "Para sua comodidade, aceitamos pagamentos via Pix (com desconto especial), cartões de crédito e débito (com parcelamento facilitado) e boleto bancário (mediante análise cadastral para empresas)."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+---
+
+{isHome && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+<section class="bg-slate-50 py-24 md:py-32 border-t border-b border-gray-100">
+  <div class="container mx-auto max-w-4xl">
+    <h2 class="text-4xl md:text-5xl font-black text-gray-900 text-center mb-16 tracking-tighter leading-tight">
+      {titleText}
+    </h2>
+    
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 open:shadow-md hover:border-gray-200">
+          <summary class="flex justify-between items-center cursor-pointer p-6 md:p-8 list-none select-none [&::-webkit-details-marker]:hidden">
+            <span class="text-gray-900 font-bold text-lg md:text-xl pr-4 leading-snug">
+              {faq.question}
+            </span>
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#EBF3FF] text-[#1E3A8A] flex items-center justify-center font-bold text-xl transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <div class="px-6 pb-6 md:px-8 md:pb-8 text-gray-600 text-base md:text-lg leading-relaxed border-t border-gray-50 pt-4">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Remove default arrow in some browsers */
+  summary {
+    display: flex;
+  }
+</style>

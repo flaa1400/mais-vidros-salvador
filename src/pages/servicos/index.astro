@@ -5,7 +5,10 @@ import Layout from '../../layouts/Layout.astro';
 const services = await getCollection('servicos');
 ---
 
-<Layout title="Nossos Serviços | Mais Vidros Salvador">
+<Layout 
+  title="Nossos Serviços | Mais Vidros Salvador"
+  description="Explore todos os serviços da Mais Vidros Salvador. Oferecemos box para banheiro, cortinas de vidro, espelhos sob medida, esquadrias e muito mais com qualidade premium."
+>
   <main class="py-32">
     <div class="container mx-auto">
       <h1 class="text-6xl md:text-8xl font-black text-gray-900 leading-tight mb-16">
@@ -14,7 +17,7 @@ const services = await getCollection('servicos');
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         {services.sort((a, b) => (a.data.order || 0) - (b.data.order || 0)).map(service => (
-          <a href={`/servicos/${service.slug}`} class="group bg-white border border-gray-100 p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all flex flex-col justify-between h-full">
+          <a href={`/servicos/${service.slug}/`} class="group bg-white border border-gray-100 p-12 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all flex flex-col justify-between h-full">
             <div>
               <div class="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block">{service.data.icon}</div>
               <h2 class="text-3xl font-black text-gray-900 mb-6">{service.data.title}</h2>

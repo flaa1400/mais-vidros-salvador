@@ -1,83 +1,115 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/config';
-import { BAIRROS, getSlug, getBairroFormatado, getBairroFormatadoDe, getBairroPageSlug, getServiceBairroSlug } from '../data/bairros';
+import { getBairroFormatado, getBairroFormatadoDe } from '../data/bairros';
 import { getCollection } from 'astro:content';
+import FAQ from '../components/FAQ.astro';
+import BairroPorQue from '../components/BairroPorQue.astro';
+import BairroVantagens from '../components/BairroVantagens.astro';
+import BairroServices from '../components/BairroServices.astro';
 
 export async function getStaticPaths() {
-  return BAIRROS.map((bairro) => ({
-    params: { bairroPageSlug: getBairroPageSlug(bairro) },
-    props: { bairro },
+  const bairrosEntries = await getCollection('bairros');
+  return bairrosEntries.map(entry => ({
+    params: { bairroPageSlug: entry.slug },
+    props: { entry },
   }));
 }
 
-const { bairro } = Astro.props;
-const bairroFormatado = getBairroFormatado(bairro);
-const bairroFormatadoDe = getBairroFormatadoDe(bairro);
+const { entry } = Astro.props;
+const { title, description, bairroName, preposicao, layoutStyle } = entry.data;
+
+const bairroFormatado = getBairroFormatado(bairroName);
+const bairroFormatadoDe = getBairroFormatadoDe(bairroName);
 const services = (await getCollection('servicos')).slice(0, 6);
 
-// Lógica de variação de conteúdo para evitar duplicidade (SEO)
-const variations = [
-  {
-    heroTitle: `Vidraçaria ${bairroFormatado}: Qualidade e Rapidez`,
-    heroDesc: `Procurando vidros de alta performance ${bairroFormatado}? Somos especialistas em instalações seguras e acabamento de luxo para sua residência ou empresa.`,
-    aboutTitle: `Sua Vidraçaria de Confiança ${bairroFormatado}`,
-    aboutText: `Atendemos toda a região ${bairroFormatadoDe} com uma equipe técnica altamente qualificada. Se você busca uma vidraçaria ${bairroFormatado} que entenda de precisão e segurança, a Mais Vidros Salvador é sua melhor escolha.`,
-    ctaTitle: `Transforme seu projeto ${bairroFormatado} hoje!`,
-    ctaDesc: `Ligue para o nosso telefone de vidraçaria ou mande uma mensagem no whatsapp agora mesmo para um orçamento ${bairroFormatado}.`
-  },
-  {
-    heroTitle: `Vidraçaria ${bairroFormatado} | Instalação e Manutenção`,
-    heroDesc: `A melhor vidraçaria ${bairroFormatado} para o seu projeto. Trabalhamos com vidros temperados, espelhos e esquadrias com o melhor custo-benefício da região.`,
-    aboutTitle: `Referência em Vidraçaria ${bairroFormatado}`,
-    aboutText: `Com anos de experiência atendendo a região ${bairroFormatadoDe}, nossa missão é entregar sofisticação e durabilidade. Cada projeto ${bairroFormatado} é executado com materiais certificados e agilidade total.`,
-    ctaTitle: `Orçamento gratuito ${bairroFormatado}`,
-    ctaDesc: `Buscando uma vidraçaria de confiança ${bairroFormatado}? Nossa equipe está pronta para te atender com agilidade e transparência.`
-  },
-  {
-    heroTitle: `Vidraçaria ${bairroFormatado} de Alta Performance`,
-    heroDesc: `Segurança e beleza para sua obra ${bairroFormatado}. Especialistas em box, cortinas de vidro e projetos sob medida com garantia total de qualidade.`,
-    aboutTitle: `Atendimento Exclusivo ${bairroFormatado}`,
-    aboutText: `Nossa vidraçaria ${bairroFormatado} se destaca pelo acabamento premium e atendimento personalizado. Levamos até você ${bairroFormatado} as tendências mais modernas do mercado de vidros.`,
-    ctaTitle: `Fale com a Mais Vidros ${bairroFormatado}`,
-    ctaDesc: `Não feche seu projeto ${bairroFormatado} sem antes consultar nossos especialistas. Qualidade garantida com o melhor preço da capital.`
-  },
-  {
-    heroTitle: `Vidraçaria ${bairroFormatado} e Soluções em Vidro`,
-    heroDesc: `Atendemos a região ${bairroFormatadoDe} com soluções completas em vidraçaria. Desde reparos urgentes até grandes projetos arquitetônicos com vidros temperados.`,
-    aboutTitle: `O melhor acabamento ${bairroFormatadoDe}`,
-    aboutText: `Se você mora ${bairroFormatado} e precisa de um serviço de vidraçaria rápido e limpo, conte conosco. Somos especialistas em transformar ambientes ${bairroFormatado} com a clareza do vidro.`,
-    ctaTitle: `Atendimento imediato ${bairroFormatado}`,
-    ctaDesc: `Precisa de um telefone de vidraçaria ${bairroFormatado}? Clique no botão abaixo e fale direto com um consultor técnico pelo WhatsApp.`
+const heroTitle = `Vidraçaria ${bairroFormatado} | Salvador-BA`;
+const heroDesc = `Procurando a vidraçaria mais próxima ${bairroFormatado} em Salvador-BA? Somos especialistas em box para banheiro, espelhos sob medida e instalação de vidros temperados.`;
+const ctaTitle = `Solicite seu Orçamento ${bairroFormatado}`;
+const ctaDesc = `Não feche seu projeto ${bairroFormatadoDe} sem antes falar com a nossa equipe. Receba uma estimativa de custos rápida e sem compromisso via WhatsApp.`;
+
+// Parse markdown body to extract neighborhood-specific paragraphs
+const parsedBody: Record<string, string[]> = {};
+const normalizedBody = entry.body.replace(/\r\n/g, '\n');
+const bodyParts = normalizedBody.split(/\n##\s+/);
+
+for (const part of bodyParts) {
+  const lines = part.split('\n');
+  const sectionTitle = lines[0].trim();
+  const contentLines = lines.slice(1);
+  const paragraphs = contentLines.join('\n')
+    .split(/\n\s*\n/)
+    .map(p => p.trim())
+    .filter(p => p.length > 0 && !p.startsWith('---'));
+  
+  if (sectionTitle) {
+    parsedBody[sectionTitle.toLowerCase()] = paragraphs;
   }
+}
+
+function getSectionParagraphs(keyword: string): string[] {
+  const matchedKey = Object.keys(parsedBody).find(k => k.includes(keyword.toLowerCase()));
+  return matchedKey ? parsedBody[matchedKey] : [];
+}
+
+const introParagraphs = getSectionParagraphs("atendimento");
+const demandsParagraphs = getSectionParagraphs("demandas");
+
+// Format markdown bolding (**text**) to HTML (<strong>text</strong>)
+const toHtml = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+const defaultIntro = `Precisando de uma vidraçaria especializada ${bairroFormatado}? Atuamos com rapidez na fabricação e instalação de vidros temperados, oferecendo atendimento confiável, projeto detalhado e preços justos.`;
+const defaultDemands = [
+  `Trabalhamos com instalação e manutenção de box de vidro para banheiro, portas em vidro temperado, guarda-corpo, janelas de correr, fachadas de lojas, espelhos sob medida (comuns, lapidados e bisotados), divisórias de vidro, coberturas de vidro e esquadrias de alumínio em residências, escritórios, comércios e condomínios ${bairroFormatadoDe}.`,
+  `Nossa equipe de instaladores certificados está pronta para realizar visitas técnicas de medição e apresentar orçamentos sem compromisso. Executamos cada projeto de vidro temperado e esquadrias com acabamento profissional impecável e durabilidade.`
 ];
 
-// Seleciona uma variação baseada no comprimento do nome do bairro para garantir distribuição
-const vIndex = bairro.length % variations.length;
-const content = variations[vIndex];
+const introText = introParagraphs.length > 0 ? toHtml(introParagraphs[0]) : defaultIntro;
+const rawDemands = demandsParagraphs.length > 0 ? demandsParagraphs.map(toHtml) : defaultDemands.map(toHtml);
+
+// Limit total text in this section to a maximum of 1400 characters
+let totalChars = introText.replace(/<[^>]*>/g, '').length; // Measure clean text length
+const demandsList: string[] = [];
+
+for (const p of rawDemands) {
+  const cleanP = p.replace(/<[^>]*>/g, '');
+  if (totalChars + cleanP.length <= 1400) {
+    demandsList.push(p);
+    totalChars += cleanP.length;
+  } else {
+    const remainingBudget = 1400 - totalChars;
+    if (remainingBudget > 100) {
+      let truncated = p.slice(0, remainingBudget - 3);
+      const lastSpace = truncated.lastIndexOf(' ');
+      if (lastSpace > 0) {
+        truncated = truncated.slice(0, lastSpace);
+      }
+      demandsList.push(truncated + '...');
+      totalChars += truncated.replace(/<[^>]*>/g, '').length + 3;
+    }
+    break;
+  }
+}
 ---
 
-<Layout 
-	title={`Vidraçaria ${bairroFormatado} | Mais Vidros Salvador`}
-	description={`Procurando uma vidraçaria ${bairroFormatado}? A Mais Vidros Salvador é especialista em box, espelhos e vidros temperados com atendimento rápido e preço justo em Salvador.`}
->
+<Layout title={title} description={description}>
 	<main>
 		<!-- HERO SECTION -->
 		<section class="min-h-[70vh] flex items-center bg-gradient-to-br from-white to-gray-50 border-b border-gray-100 overflow-hidden">
 			<div class="container mx-auto">
 				<div class="max-w-4xl">
 					<span class="inline-block px-4 py-2 bg-primary text-secondary font-black text-xs md:text-sm uppercase tracking-[0.2em] rounded-lg mb-8 shadow-md">
-						Atendimento {bairroFormatado}
+						Atendimento {bairroName}
 					</span>
 					<h1 class="text-5xl md:text-7xl font-black text-gray-900 leading-[1.1] mb-8 tracking-tighter">
-						{content.heroTitle}
+						{heroTitle}
 					</h1>
 					<p class="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-12 font-medium">
-						{content.heroDesc}
+						{heroDesc}
 					</p>
 					
 					<div class="flex flex-wrap gap-6">
-						<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="bg-secondary text-white px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-secondary/20 flex items-center gap-4">
+						<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage + ' no bairro ' + bairroName)}`} target="_blank" class="bg-secondary text-white px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-secondary/20 flex items-center gap-4">
 							Orçamento no WhatsApp <span>📱</span>
 						</a>
 						<a href="/servicos/" class="bg-white/80 backdrop-blur-md border-4 border-white text-gray-900 px-10 py-6 rounded-2xl font-black text-xl hover:border-primary hover:scale-105 active:scale-95 transition-all shadow-xl">
@@ -88,66 +120,57 @@ const content = variations[vIndex];
 			</div>
 		</section>
 
-		<!-- SOBRE RESUMO LOCALIZADO -->
-		<section class="bg-gray-900 text-white relative overflow-hidden">
-			<div class="absolute right-0 top-0 w-1/3 h-full bg-primary/10 blur-[120px] rounded-full"></div>
-			<div class="container mx-auto relative z-10">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-					<div>
-						<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter text-primary italic">{content.aboutTitle}</h2>
-						<p class="text-xl text-gray-100 leading-relaxed mb-10 font-medium">
-							{content.aboutText}
-						</p>
-						<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} class="inline-block bg-primary text-secondary px-10 py-5 rounded-2xl font-black text-xl hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
-							Falar com Especialista
-						</a>
-					</div>
-					<div class="bg-white/5 p-12 rounded-[4rem] border border-white/10 backdrop-blur-sm text-center">
-						<div class="text-9xl mb-6">📍</div>
-						<p class="text-2xl font-black text-primary">Salvador - {bairro}</p>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- LAYOUT STYLE 1 -->
+		{layoutStyle === 'layout-1' && (
+			<>
+				<BairroPorQue bairroName={bairroName} preposicao={preposicao} introText={introText} demandsList={demandsList} />
+				<BairroVantagens bairroName={bairroName} preposicao={preposicao} />
+				<BairroServices bairroName={bairroName} bairroFormatado={bairroFormatado} services={services} />
+				<FAQ bairroName={bairroName} preposicao={preposicao} />
+			</>
+		)}
 
-		<!-- SERVIÇOS GRID -->
-		<section id="servicos">
-			<div class="container mx-auto">
-				<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-					<div class="max-w-2xl">
-						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Vidraçaria {bairroFormatado}</h2>
-						<p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm opacity-60">Serviços Disponíveis para sua Região</p>
-					</div>
-				</div>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-					{services.map(s => (
-						<a href={`/servicos/${getServiceBairroSlug(s.slug, bairro)}/`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
-							<div>
-								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
-								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title.replace('em Salvador', bairroFormatado)}</h3>
-								<p class="text-gray-600 mb-10 leading-relaxed text-lg font-medium">{s.data.description.replace('em Salvador', bairroFormatado)}</p>
-							</div>
-							<span class="text-secondary font-black flex items-center gap-2 group-hover:gap-6 transition-all uppercase tracking-[0.2em] text-sm italic">
-								Mais Informações <span>&rarr;</span>
-							</span>
-						</a>
-					))}
-				</div>
-			</div>
-		</section>
+		<!-- LAYOUT STYLE 2 -->
+		{layoutStyle === 'layout-2' && (
+			<>
+				<BairroVantagens bairroName={bairroName} preposicao={preposicao} />
+				<BairroServices bairroName={bairroName} bairroFormatado={bairroFormatado} services={services} />
+				<BairroPorQue bairroName={bairroName} preposicao={preposicao} introText={introText} demandsList={demandsList} />
+				<FAQ bairroName={bairroName} preposicao={preposicao} />
+			</>
+		)}
+
+		<!-- LAYOUT STYLE 3 -->
+		{layoutStyle === 'layout-3' && (
+			<>
+				<BairroServices bairroName={bairroName} bairroFormatado={bairroFormatado} services={services} />
+				<BairroPorQue bairroName={bairroName} preposicao={preposicao} introText={introText} demandsList={demandsList} />
+				<BairroVantagens bairroName={bairroName} preposicao={preposicao} />
+				<FAQ bairroName={bairroName} preposicao={preposicao} />
+			</>
+		)}
+
+		<!-- LAYOUT STYLE 4 -->
+		{layoutStyle === 'layout-4' && (
+			<>
+				<BairroPorQue bairroName={bairroName} preposicao={preposicao} introText={introText} demandsList={demandsList} />
+				<BairroServices bairroName={bairroName} bairroFormatado={bairroFormatado} services={services} />
+				<FAQ bairroName={bairroName} preposicao={preposicao} />
+				<BairroVantagens bairroName={bairroName} preposicao={preposicao} />
+			</>
+		)}
 
 		<!-- CTA FINAL LOCALIZADO -->
 		<section class="bg-primary">
 			<div class="container mx-auto text-center">
 				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-12 tracking-tighter">
-					{content.ctaTitle}
+					{ctaTitle}
 				</h2>
 				<p class="text-xl md:text-2xl text-secondary opacity-90 max-w-3xl mx-auto mb-16 font-bold leading-relaxed uppercase tracking-widest">
-					{content.ctaDesc}
+					{ctaDesc}
 				</p>
 				<div class="flex justify-center">
-					<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="bg-secondary text-white px-10 py-7 md:px-12 md:py-8 rounded-[2.5rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-2xl flex items-center justify-center text-center gap-4 max-w-full">
+					<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage + ' no bairro ' + bairroName)}`} target="_blank" class="bg-secondary text-white px-10 py-7 md:px-12 md:py-8 rounded-[2.5rem] font-black text-2xl hover:scale-110 active:scale-95 transition-all shadow-2xl flex items-center justify-center text-center gap-4 max-w-full">
 						Solicitar Orçamento agora <span>📱</span>
 					</a>
 				</div>

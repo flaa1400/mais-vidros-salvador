@@ -5,7 +5,10 @@ import { BAIRROS, getSlug, getBairroFormatado, getBairroPageSlug } from '../data
 const sortedBairros = [...BAIRROS].sort();
 ---
 
-<Layout title="Bairros Atendidos | Vidraçaria em Salvador">
+<Layout 
+	title="Bairros Atendidos | Vidraçaria em Salvador"
+	description="Confira todos os bairros de Salvador atendidos pela Mais Vidros. Oferecemos serviços de vidraçaria, box e espelhos com instalação rápida em toda a capital."
+>
 	<main class="py-32">
 		<div class="container mx-auto">
 			<div class="text-center mb-20">
@@ -21,7 +24,7 @@ const sortedBairros = [...BAIRROS].sort();
 						href={`/${getBairroPageSlug(bairro)}/`} 
 						class="p-6 bg-white border border-gray-100 rounded-2xl hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all group"
 					>
-						<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight">Vidraçaria {getBairroFormatado(bairro)}</span>
+						<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight">{bairro}</span>
 					</a>
 				))}
 			</div>

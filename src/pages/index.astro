@@ -2,8 +2,16 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/config';
+import FAQ from '../components/FAQ.astro';
+import { Image } from 'astro:assets';
+import trabalhadorVidros from '../assets/trabalhador_vidros.png';
+import { getBairroPageSlug } from '../data/bairros';
 
 const services = (await getCollection('servicos')).slice(0, 6);
+
+const destaqueBairros = [
+	"Pituba", "Brotas", "Barra", "Cabula", "Imbuí", "Itapuã", "Pernambués", "Patamares", "Stella Maris", "São Caetano", "Cajazeiras VIII", "Mata Escura"
+];
 
 const testimonials = [
 	{
@@ -34,7 +42,10 @@ const features = [
 ];
 ---
 
-<Layout title="Vidraçaria em Salvador | Mais Vidros Salvador | Vidros e Espelhos">
+<Layout 
+	title="Vidraçaria em Salvador | Mais Vidros Salvador | Vidros e Espelhos"
+	description="Vidraçaria em Salvador: Especialista em box de vidro, espelhos sob medida e cortina de vidro. A Mais Vidros Salvador oferece o melhor serviço. Orçamento grátis!"
+>
 	<main>
 		<!-- HERO SECTION -->
 		<section class="min-h-[85vh] flex items-center bg-gradient-to-br from-white to-gray-50 border-b border-gray-100 overflow-hidden">
@@ -47,14 +58,14 @@ const features = [
 						Vidraçaria em Salvador: <br class="hidden md:block" /> <span class="text-secondary italic">Sofisticação</span> e Segurança.
 					</h1>
 					<p class="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed mb-12 font-medium">
-						Sua vidraçaria em Salvador com acabamento de alto padrão. Somos referência em Vidros em Salvador com precisão técnica para os projetos mais exigentes da capital.
+						Procurando a <strong>vidraçaria mais próxima</strong>? A Mais Vidros Salvador é a sua <strong>Vidraçaria em Salvador‑BA Perto de Mim</strong> com acabamento de alto padrão e precisão técnica para os projetos mais exigentes da capital.
 					</p>
 					
 					<div class="flex flex-wrap gap-6">
 						<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="bg-secondary text-white px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-secondary/20 flex items-center gap-4">
 							Orçamento no WhatsApp <span>📱</span>
 						</a>
-						<a href="/servicos" class="bg-white/80 backdrop-blur-md border-4 border-white text-gray-900 px-10 py-6 rounded-2xl font-black text-xl hover:border-primary hover:scale-105 active:scale-95 transition-all shadow-xl">
+						<a href="/servicos/" class="bg-white/80 backdrop-blur-md border-4 border-white text-gray-900 px-10 py-6 rounded-2xl font-black text-xl hover:border-primary hover:scale-105 active:scale-95 transition-all shadow-xl">
 							Nossos Serviços
 						</a>
 					</div>
@@ -96,11 +107,11 @@ const features = [
 			<div class="container mx-auto relative z-10">
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 					<div>
-						<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter text-primary italic">Expertise que faz a diferença.</h2>
+						<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter text-primary italic">Vidros em Salvador: Expertise que faz a diferença.</h2>
 						<p class="text-xl text-gray-100 leading-relaxed mb-10 font-medium">
 							Com mais de 10 anos de atuação, se você procura um vidraceiro em salvador de confiança, a Mais Vidros Salvador combina tradição com modernidade.
 						</p>
-						<a href="/sobre" class="inline-block bg-primary text-secondary px-10 py-5 rounded-2xl font-black text-xl hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+						<a href="/sobre/" class="inline-block bg-primary text-secondary px-10 py-5 rounded-2xl font-black text-xl hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
 							Conheça nossa História
 						</a>
 					</div>
@@ -116,17 +127,17 @@ const features = [
 			<div class="container mx-auto">
 				<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
 					<div class="max-w-2xl">
-						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Vidraçaria em Salvador</h2>
-						<p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm opacity-60">Qualidade Garantida em Cada Projeto</p>
+						<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter underline decoration-primary decoration-8">Nossos Serviços de Vidraceiro em Salvador</h2>
+						<p class="text-xl text-gray-600 leading-relaxed font-bold uppercase tracking-widest text-sm">Qualidade Garantida em Cada Projeto</p>
 					</div>
-					<a href="/servicos" class="bg-gray-100 text-secondary px-10 py-5 rounded-2xl font-black hover:bg-primary hover:scale-105 active:scale-95 transition-all shadow-sm">
+					<a href="/servicos/" class="bg-gray-100 text-secondary px-10 py-5 rounded-2xl font-black hover:bg-primary hover:scale-105 active:scale-95 transition-all shadow-sm">
 						Ver Todos os Serviços
 					</a>
 				</div>
 				
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 					{services.map(s => (
-						<a href={`/servicos/${s.slug}`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
+						<a href={`/servicos/${s.slug}/`} class="group bg-white p-12 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full flex flex-col justify-between hover:border-primary">
 							<div>
 								<div class="text-7xl mb-10 group-hover:scale-110 transition-transform duration-500">{s.data.icon}</div>
 								<h3 class="text-3xl font-black text-gray-900 mb-6 tracking-tighter group-hover:text-secondary transition-colors">{s.data.title}</h3>
@@ -141,8 +152,111 @@ const features = [
 			</div>
 		</section>
 
+		<!-- POR QUE SOMOS A MELHOR -->
+		<section class="bg-gradient-to-br from-secondary to-blue-950 text-white relative overflow-hidden py-24 md:py-32">
+			<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+			<div class="container mx-auto relative z-10">
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+					<!-- Texto Coluna -->
+					<div class="lg:col-span-7 space-y-8">
+						<h2 class="text-4xl md:text-6xl font-black leading-tight tracking-tighter">
+							Por que escolher nossa <br class="hidden md:block" />
+							<span class="text-primary italic">Vidraçaria Perto de Mim em Salvador?</span>
+						</h2>
+						
+						<p class="text-lg md:text-xl text-blue-100 font-medium leading-relaxed">
+							Se você busca por uma <strong>vidraçaria perto de mim aberta agora em Salvador</strong>, conte com a Mais Vidros. Atuamos com máxima rapidez na fabricação e instalação de vidros temperados, oferecendo atendimento de alta confiança, projetos detalhados sob medida e preços extremamente justos.
+						</p>
+
+						<div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl text-primary font-bold text-lg max-w-full">
+							<span class="text-2xl">⚡</span>
+							<span>Atendimento ágil de Vidraçaria perto de você!</span>
+						</div>
+
+						<div class="space-y-6 text-gray-300 text-lg leading-relaxed font-medium">
+							<p>
+								Trabalhamos com instalação e manutenção de box de vidro para banheiro, portas em vidro temperado, guarda-corpo, janelas de correr, fachadas de lojas, espelhos sob medida (comuns, lapidados e bisotados), divisórias de vidro, coberturas de vidro e esquadrias de alumínio em residências, escritórios, comércios e condomínios de Salvador.
+							</p>
+							<p>
+								Nossa equipe de instaladores certificados está pronta para realizar visitas técnicas de medição e apresentar orçamentos sem compromisso. Executamos cada projeto de vidro temperado e esquadrias com acabamento profissional impecável e durabilidade.
+							</p>
+						</div>
+
+						<div class="pt-4">
+							<a href={`https://wa.me/${SITE_CONFIG.nap.whatsapp}?text=${encodeURIComponent(SITE_CONFIG.nap.whatsappMessage)}`} target="_blank" class="inline-flex items-center gap-4 bg-primary text-secondary px-10 py-6 rounded-2xl font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/20">
+								Solicitar meu Orçamento <span>💬</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Imagem Coluna -->
+					<div class="lg:col-span-5 flex flex-col items-center justify-center">
+						<div class="bg-white/5 p-4 rounded-[3rem] border border-white/10 backdrop-blur-sm shadow-2xl w-full max-w-lg">
+							<div class="rounded-[2rem] overflow-hidden shadow-inner bg-gray-900 aspect-[4/3] relative">
+								<Image 
+									src={trabalhadorVidros} 
+									alt="Instalação de vidraçaria perto de mim em Salvador" 
+									class="w-full h-full object-cover"
+									loading="lazy" 
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- VANTAGENS LOCAL -->
+		<section class="bg-slate-50 border-t border-b border-gray-100">
+			<div class="container mx-auto">
+				<div class="max-w-3xl mx-auto text-center mb-20">
+					<h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tighter leading-tight">
+						Vantagens de contratar uma <br class="hidden md:block" />
+						<span class="text-secondary">Vidraçaria Próxima em Salvador</span>
+					</h2>
+					<p class="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
+						Escolher um fornecedor local faz toda a diferença na velocidade, custo e suporte da sua obra.
+					</p>
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+					<div class="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+						<div class="w-14 h-14 bg-primary/10 text-secondary rounded-2xl flex items-center justify-center text-3xl font-black mb-8">
+							🚀
+						</div>
+						<h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tighter">Medição Express</h3>
+						<p class="text-gray-600 leading-relaxed font-medium">Por estarmos em Salvador, nossos técnicos chegam rapidamente ao seu endereço para fazer a medição técnica com precisão milimétrica.</p>
+					</div>
+					
+					<div class="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+						<div class="w-14 h-14 bg-primary/10 text-secondary rounded-2xl flex items-center justify-center text-3xl font-black mb-8">
+							💰
+						</div>
+						<h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tighter">Frete Reduzido</h3>
+						<p class="text-gray-600 leading-relaxed font-medium">A menor distância de transporte diminui drasticamente o custo do frete e os riscos de avaria nos vidros durante o trajeto.</p>
+					</div>
+					
+					<div class="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+						<div class="w-14 h-14 bg-primary/10 text-secondary rounded-2xl flex items-center justify-center text-3xl font-black mb-8">
+							🛠️
+						</div>
+						<h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tighter">Pós-Venda Ágil</h3>
+						<p class="text-gray-600 leading-relaxed font-medium">Se precisar de qualquer ajuste, manutenção ou garantia, nosso suporte local é acionado imediatamente sem burocracias.</p>
+					</div>
+					
+					<div class="bg-white p-10 rounded-[2rem] border border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+						<div class="w-14 h-14 bg-primary/10 text-secondary rounded-2xl flex items-center justify-center text-3xl font-black mb-8">
+							🏢
+						</div>
+						<h3 class="text-2xl font-black text-gray-900 mb-4 tracking-tighter">Foco em Salvador</h3>
+						<p class="text-gray-600 leading-relaxed font-medium">Conhecemos as particularidades climáticas (como maresia) e de engenharia dos prédios e condomínios da capital baiana.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- DEPOIMENTOS -->
-		<section class="bg-gray-50">
+		<section class="bg-white">
 			<div class="container mx-auto">
 				<h2 class="text-4xl md:text-5xl font-black text-gray-900 text-center mb-24 tracking-tighter italic">O que nossos <span class="text-secondary not-italic">clientes</span> dizem</h2>
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -165,11 +279,14 @@ const features = [
 			</div>
 		</section>
 
+		<!-- PERGUNTAS FREQUENTES (FAQ) -->
+		<FAQ />
+
 		<!-- CTA FINAL -->
 		<section class="bg-primary">
 			<div class="container mx-auto text-center">
 				<h2 class="text-4xl md:text-6xl font-black text-secondary leading-tight mb-12 tracking-tighter">
-					Que tal transformar o seu projeto em <span class="italic underline decoration-white decoration-4">Salvador?</span>
+					Entre em contato pelo nosso <span class="italic underline decoration-white decoration-4">Telefone de Vidraçaria!</span>
 				</h2>
 				<p class="text-xl md:text-2xl text-secondary opacity-90 max-w-3xl mx-auto mb-16 font-bold leading-relaxed uppercase tracking-widest">
 					Agende agora uma visita técnica. Ligue para o nosso telefone de vidraçaria ou mande uma mensagem no whatsapp.
@@ -179,6 +296,53 @@ const features = [
 						Solicitar Orçamento <span>📱</span>
 					</a>
 				</div>
+			</div>
+		</section>
+
+		<!-- MAPA DE LOCALIZAÇÃO -->
+		<section class="bg-gray-50 py-20 border-t border-gray-100">
+			<div class="container mx-auto max-w-4xl text-center">
+				<h3 class="text-3xl font-black text-gray-900 mb-4 tracking-tighter">Nossa Localização</h3>
+				<p class="text-gray-600 mb-8 font-medium text-base">{SITE_CONFIG.nap.address}</p>
+				<div class="h-96 rounded-[2.5rem] overflow-hidden border-4 border-white shadow-xl">
+					<iframe 
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1651817036986!2d-38.4503953!3d-12.9228472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161048895080c9%3A0xc00f089e90080f0!2sAv.%20Cardeal%20Avelar%20Brand%C3%A3o%20Villela%2C%201647%20-%20Mata%20Escura%2C%20Salvador%20-%20BA%2C%2041225-000!5e0!3m2!1spt-BR!2sbr!4v1713824500000!5m2!1spt-BR!2sbr" 
+						width="100%" 
+						height="100%" 
+						style="border:0;" 
+						allowfullscreen="" 
+						loading="lazy" 
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+		</section>
+
+		<!-- REGIÕES ATENDIDAS (BAIRROS) -->
+		<section class="bg-white border-t border-gray-100">
+			<div class="container mx-auto text-center">
+				<h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tighter leading-tight">
+					Principais Regiões Atendidas em Salvador
+				</h2>
+				<p class="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto mb-16 leading-relaxed">
+					Oferecemos serviços rápidos de vidraçaria e box de vidro sob medida nos principais bairros da capital baiana.
+				</p>
+				<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-16 text-left">
+					{destaqueBairros.map(b => (
+						<a 
+							href={`/${getBairroPageSlug(b)}/`} 
+							class="p-5 bg-gray-50 border border-gray-100 rounded-2xl hover:border-primary hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all text-center group"
+						>
+							<span class="text-gray-900 font-bold group-hover:text-secondary tracking-tight block text-sm sm:text-base">{b}</span>
+						</a>
+					))}
+				</div>
+				<a 
+					href="/bairros/" 
+					class="inline-block bg-secondary text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-xl"
+				>
+					Ver Todos os Bairros Atendidos
+				</a>
 			</div>
 		</section>
 	</main>
