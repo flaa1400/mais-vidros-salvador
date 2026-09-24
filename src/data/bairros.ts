@@ -7,7 +7,7 @@ export const BAIRROS = [
   "Cajazeiras V", "Cajazeiras VI", "Cajazeiras VII", "Cajazeiras VIII",
   "Itapuã", "Pituba", "Pernambués", "Paripe", "Valéria", "Periperi", "Mussurunga", "São Cristóvão", 
   "Stella Maris", "Patamares", "Piatã", "Pituaçu", "Imbuí", "Federação", "Fazenda Grande do Retiro", 
-  "São Caetano", "Pirajá", "Castelo Branco"
+  "São Caetano", "Pirajá", "Castelo Branco", "Lauro de Freitas"
 ];
 
 const preposicoes: Record<string, string> = {
@@ -63,7 +63,8 @@ const preposicoes: Record<string, string> = {
   "Fazenda Grande do Retiro": "na",
   "São Caetano": "em",
   "Pirajá": "em",
-  "Castelo Branco": "em"
+  "Castelo Branco": "em",
+  "Lauro de Freitas": "em"
 };
 
 export function getSlug(name: string) {

@@ -21,7 +21,8 @@ const { title, description, bairroName, preposicao, layoutStyle } = entry.data;
 
 const bairroFormatado = getBairroFormatado(bairroName);
 const bairroFormatadoDe = getBairroFormatadoDe(bairroName);
-const services = (await getCollection('servicos')).slice(0, 6);
+const allServices = await getCollection('servicos');
+const services = bairroName === 'Lauro de Freitas' ? allServices : allServices.slice(0, 6);
 
 const heroTitle = `Vidraçaria ${bairroFormatado} | Salvador-BA`;
 const heroDesc = `Procurando a vidraçaria mais próxima ${bairroFormatado} em Salvador-BA? Somos especialistas em box para banheiro, espelhos sob medida e instalação de vidros temperados.`;
